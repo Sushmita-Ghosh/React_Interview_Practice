@@ -3,7 +3,7 @@ Practice questions for React Interview:
 
 [Apurv's List](https://ak-react-slides.netlify.app/#0)
 
-### TABLE OF CONTENTS: 
+## TABLE OF CONTENTS: 
 
 | Serial No  | Topic Name |
 | ------------- | ------------- |
@@ -13,7 +13,7 @@ Practice questions for React Interview:
 
 
 
-### TOPICS:
+## TOPICS:
 ---
 
 <a name="hoc"></a><h2>HIGHER ORDER COMPONENT</h2>

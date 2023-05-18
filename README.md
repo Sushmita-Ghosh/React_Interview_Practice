@@ -9,6 +9,7 @@ Practice questions for React Interview:
 | ------------- | ------------- |
 | 1  |[HOC](#hoc)|
 | Content Cell  | Content Cell  |
+| 3  |[FC VS CC](#fccc)|
 
 ---
 <details>
@@ -42,3 +43,19 @@ For example : Suppose you have two buttons to design – Login & Register – So
 
 ---
 
+
+<details>
+  <summary><a name="fccc"></a><h3>FUNCTIONAL VS CLASS COMPONENTS</h3></summary>
+<br>
+So in react, before the introduction of hooks in 16.8 version - Functional components did not have state -
+So we had to write class components for any kind of data manipulation through state and props.
+
+* But after hooks got introducted we got useState(for any kind of state changes) & useEffect for any lifecycle methods.
+
+* Since functional components are simple Javascript functions so the it is easier to read and test out them, Like useeffect alone can handle 3 lifecycle methods but in class components we have to write three different methods to
+achive the scenario
+
+* Also like class components are internally transformed into functional components only while computation so using fucntional components reduces this extra step of convertion hence we are encouraged to use fucntional componnets over class coponents
+
+ [YT](https://www.youtube.com/watch?v=65BsgzQR-rU) 
+</details>

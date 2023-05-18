@@ -11,7 +11,9 @@ Practice questions for React Interview:
 | Content Cell  | Content Cell  |
 | 3  |[FC VS CC](#fccc)|
 
----
+
+
+### TOPICS:
 <p><a name="hoc"></a><h3>HIGHER ORDER COMPONENT</h3>
 <br>
 Higher Order Component in React is defined a component which takes another component as input and may or may not return another component.

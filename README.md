@@ -30,7 +30,7 @@ Higher Order Component in React is defined a component which takes another compo
 ---
 
 <details>
-<summary>HIGHER ORDER COMPONENTS</summary>
+<summary>HIGHER ORDER COMPONENT</summary>
 <br>
 
 

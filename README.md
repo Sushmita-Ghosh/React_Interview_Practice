@@ -3,7 +3,7 @@ Practice questions for React Interview:
 
 [Apurv's List](https://ak-react-slides.netlify.app/#0)
 <details>
-  <summary><h6>HIGHER ORDER COMPONENTS</h6></summary>
+  <summary><h3>HIGHER ORDER COMPONENTS</h3></summary>
 <br>
 
 

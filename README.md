@@ -78,7 +78,6 @@ export default App;
 <a name="se"></a><h2>SYNTHETIC EVENTS</h2>
 ---
 
-<br>
 In order to work across multiple browsers, react has create a wrapper around native browser events.
 * Whenever a event occurs in the application, react listens to it and then wraps the event with an interface - which will provide the same functionality as native browser events.
 * Why? By doing so, they have avoided creating multiple implementations for multiple methods for multiple browsers.

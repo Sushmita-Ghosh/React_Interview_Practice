@@ -7,7 +7,7 @@ Practice questions for React Interview:
 
 | Serial No  | Topic Name |
 | ------------- | ------------- |
-| 1  |[I'm an inline-style link](https://www.google.com)|
+| 1  |[Higher Order Components](###HIGHER ORDER COMPONENTS)|
 | Content Cell  | Content Cell  |
 
 

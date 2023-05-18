@@ -92,6 +92,7 @@ In order to work across multiple browsers, react has create a wrapper around nat
 ```e.preventDefault()``` prevents all the default behavior by the browser.
 
 ```e.stopPropagation()``` prevents the call to the parent component whenever a child component gets called.
+
 Here ‘e’ is a synthetic event, a cross-browser object. It is made with a wrapper around the actual event of the browser. 
 
 ```javascript

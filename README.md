@@ -5,7 +5,7 @@ Practice questions for React Interview:
 <details>
 <summary>HIGHER ORDER COMPONENTS</summary>
 <br>
-[YT](https://www.youtube.com/watch?v=o22KRrxab18&list=PLmcRO0ZwQv4QMslGJQg7N8AzaHkC5pJ4t&index=28)  
+[Or here](https://github.com/)
 
 Higher Order Component in React is defined a component which takes another component as input and may or may not return another component.
   

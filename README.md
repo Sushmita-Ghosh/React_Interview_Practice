@@ -7,12 +7,12 @@ Practice questions for React Interview:
 
 | Serial No  | Topic Name |
 | ------------- | ------------- |
-| 1  |[HOC](HIGHER ORDER COMPONENTS)|
+| 1  |[HOC](#hoc)|
 | Content Cell  | Content Cell  |
 
 ---
 <details>
-  <summary><h3>HIGHER ORDER COMPONENT</h3></summary>
+  <summary><a name="hoc"></a><h3>HIGHER ORDER COMPONENT</h3></summary>
 <br>
 Higher Order Component in React is defined a component which takes another component as input and may or may not return another component.
   

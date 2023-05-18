@@ -24,7 +24,16 @@ Higher Order Component in React is defined a component which takes another compo
   
 <b>For example :</b> Suppose you have two buttons to design – Login & Register – So you can design a button component – then pass it to another higher order component which will have additional functionalities like – styling – on Click – then the text
 
-#### Code :
+### Code :
+
+```Hello.jsx```
+```javascript
+function Hello() {
+  return <div>Hello</div>;
+}
+
+export default Hello;
+```
 
 ```ContainerHoc.jsx```
 ```javascript
@@ -40,6 +49,26 @@ export default function ContainerHoc(component) {
     );
   };
 }
+```
+
+```App.jsx```
+```javascript
+import "./App.css";
+import ContainerHoc from "./components/ContainerHoc";
+import Hello from "./components/Hello";
+
+function App() {
+  const SampleComponent = ContainerHoc(Hello);
+
+  return (
+    <>
+      <SampleComponent />
+    </>
+  );
+}
+
+export default App;
+
 ```
 
  [YT](https://www.youtube.com/watch?v=o22KRrxab18&list=PLmcRO0ZwQv4QMslGJQg7N8AzaHkC5pJ4t&index=28) 

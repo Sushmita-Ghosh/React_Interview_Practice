@@ -10,6 +10,12 @@ Practice questions for React Interview:
 | 1  |[HOC](#hoc)|
 | 2  |[SYNTHETIC EVENTS](#se)|
 | 3  |[FC VS CC](#fccc)|
+| 4  |[STRICT MODE](#sm)|
+| 3  |[FC VS CC](#fccc)|
+| 3  |[FC VS CC](#fccc)|
+| 3  |[FC VS CC](#fccc)|
+| 3  |[FC VS CC](#fccc)|
+| 3  |[FC VS CC](#fccc)|
 
 
 
@@ -115,7 +121,10 @@ export default App;
 ```
 
 [YT](https://www.youtube.com/watch?v=o22KRrxab18&list=PLmcRO0ZwQv4QMslGJQg7N8AzaHkC5pJ4t&index=28) 
+
 [Ref](https://www.geeksforgeeks.org/what-are-synthetic-events-in-reactjs/)
+
+<REF2](https://itnext.io/deep-dive-into-syntheticevent-in-react-325486d9baad)
 
 ---
 
@@ -137,3 +146,23 @@ achive the scenario
 
 
 ---
+
+
+<a name="sm"></a><h2>STRICT MODE</h2>
+---
+<br>
+So in react, before the introduction of hooks in 16.8 version - Functional components did not have state -
+So we had to write class components for any kind of data manipulation through state and props.
+
+* But after hooks got introducted we got useState(for any kind of state changes) & useEffect for any lifecycle methods.
+
+* Since functional components are simple Javascript functions so the it is easier to read and test out them, Like useeffect alone can handle 3 lifecycle methods but in class components we have to write three different methods to
+achive the scenario
+
+* Also like class components are internally transformed into functional components only while computation so using fucntional components reduces this extra step of convertion hence we are encouraged to use fucntional componnets over class coponents
+
+ [YT](https://www.youtube.com/watch?v=65BsgzQR-rU) 
+
+
+---
+

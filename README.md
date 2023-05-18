@@ -86,7 +86,7 @@ In order to work across multiple browsers, react has create a wrapper around nat
 * Provides cross browser feasibility
 * it increases the performance of the application as React reuses the event object.
 
-<b>For Example</p> 
+<b>For Example</b> 
   
 <b>Syntax:</b>
 ```e.preventDefault()``` prevents all the default behavior by the browser.

@@ -12,15 +12,14 @@ Practice questions for React Interview:
 | 3  |[FC VS CC](#fccc)|
 
 ---
-<details>
-  <summary><a name="hoc"></a><h3>HIGHER ORDER COMPONENT</h3></summary>
+<p><a name="hoc"></a><h3>HIGHER ORDER COMPONENT</h3>
 <br>
 Higher Order Component in React is defined a component which takes another component as input and may or may not return another component.
   
 For example : Suppose you have two buttons to design – Login & Register – So you can design a button component – then pass it to another higher order component which will have additional functionalities like – styling – on Click – then the text
 
  [YT](https://www.youtube.com/watch?v=o22KRrxab18&list=PLmcRO0ZwQv4QMslGJQg7N8AzaHkC5pJ4t&index=28) 
-</details>
+</p>
 
 
 ---
@@ -44,8 +43,7 @@ For example : Suppose you have two buttons to design – Login & Register – So
 ---
 
 
-<details>
-  <summary><a name="fccc"></a><h3>FUNCTIONAL VS CLASS COMPONENTS</h3></summary>
+<p><a name="fccc"></a><h3>FUNCTIONAL VS CLASS COMPONENTS</h3>
 <br>
 So in react, before the introduction of hooks in 16.8 version - Functional components did not have state -
 So we had to write class components for any kind of data manipulation through state and props.
@@ -58,4 +56,6 @@ achive the scenario
 * Also like class components are internally transformed into functional components only while computation so using fucntional components reduces this extra step of convertion hence we are encouraged to use fucntional componnets over class coponents
 
  [YT](https://www.youtube.com/watch?v=65BsgzQR-rU) 
-</details>
+</p>
+
+---

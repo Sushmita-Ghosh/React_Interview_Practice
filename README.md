@@ -7,7 +7,7 @@ Practice questions for React Interview:
 
 | Serial No  | Topic Name |
 | ------------- | ------------- |
-| 1  | [Higher Order Component](<h3>HIGHER ORDER COMPONENTS</h3>) |
+| 1  | <h2>[Higher Order Component](<h3>HIGHER ORDER COMPONENTS</h3>)- </h2> |
 | Content Cell  | Content Cell  |
 
 

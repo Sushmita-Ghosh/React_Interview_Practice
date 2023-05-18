@@ -81,6 +81,8 @@ export default App;
 In order to work across multiple browsers, react has create a wrapper around native browser events.
 * Whenever a event occurs in the application, react listens to it and then wraps the event with an interface - which will provide the same functionality as native browser events.
 * Why? By doing so, they have avoided creating multiple implementations for multiple methods for multiple browsers.
+
+
 ``` Advantages```
 * Provides cross browser feasibility
 * it increases the performance of the application as React reuses the event object.

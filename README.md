@@ -7,7 +7,7 @@ Practice questions for React Interview:
 
 | Serial No  | Topic Name |
 | ------------- | ------------- |
-| 1  | <h2>[I'm an inline-style link](https://www.google.com)</h2> |
+| 1  |[I'm an inline-style link](https://www.google.com)|
 | Content Cell  | Content Cell  |
 
 

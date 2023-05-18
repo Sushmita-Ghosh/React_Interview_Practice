@@ -79,17 +79,41 @@ export default App;
 ---
 
 <br>
+In order to work across multiple browsers, react has create a wrapper around native browser events.
+* Whenever a event occurs in the application, react listens to it and then wraps the event with an interface - which will provide the same functionality as native browser events.
+* Why? By doing so, they have avoided creating multiple implementations for multiple methods for multiple browsers.
+``` Advantages```
+* Provides cross browser feasibility
+* it increases the performance of the application as React reuses the event object.
 
-
-
+<b>For Example</p> 
   
-  <br>
-  <br>
+<b>Syntax:</b>
+```e.preventDefault()``` prevents all the default behavior by the browser.
 
-For example : Suppose you have two buttons to design – Login & Register – So you can design a button component – then pass it to another higher order component which will have additional functionalities like – styling – on Click – then the text
+```e.stopPropagation()``` prevents the call to the parent component whenever a child component gets called.
+Here ‘e’ is a synthetic event, a cross-browser object. It is made with a wrapper around the actual event of the browser. 
 
- [YT](https://www.youtube.com/watch?v=o22KRrxab18&list=PLmcRO0ZwQv4QMslGJQg7N8AzaHkC5pJ4t&index=28) 
+```javascript
+function App() {
+    const onClickHandler = (e) => {
+    // here e is the synthetic event
+        console.log(e);
+    }
+    return (
+        <div className="App">
+            <button onClick={onClickHandler}>
+                Click
+            </button>
+        </div>
+    );
+}
+  
+export default App;
+```
 
+[YT](https://www.youtube.com/watch?v=o22KRrxab18&list=PLmcRO0ZwQv4QMslGJQg7N8AzaHkC5pJ4t&index=28) 
+[Ref](https://www.geeksforgeeks.org/what-are-synthetic-events-in-reactjs/)
 
 ---
 

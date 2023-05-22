@@ -11,9 +11,9 @@ Practice questions for React Interview:
 | 2  |[SYNTHETIC EVENTS](#se)|
 | 3  |[FC VS CC](#fccc)|
 | 4  |[STRICT MODE](#sm)|
-| 3  |[FC VS CC](#fccc)|
-| 3  |[FC VS CC](#fccc)|
-| 3  |[FC VS CC](#fccc)|
+| 3  |[REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#)|
+| 3  |[INFINITE LOOP IN REACT](#fccc)|
+| 3  |[CONTEXT API](#fccc)|
 | 3  |[FC VS CC](#fccc)|
 | 3  |[FC VS CC](#fccc)|
 
@@ -152,9 +152,15 @@ achive the scenario
 ---
 <br>
 
-Strict Mode is a react developer tool (means it only runs in development mode) for identifying possible problems in apllication. It provides deprication checks and warnufs
+Strict Mode is a react developer tool (means it only runs in development mode) for identifying possible problems in apllication. It provides deprication checks and warning messages whenever any such code is written in an application. 
 
- [GFG]([https://www.youtube.com/watch?v=65BsgzQR-rU](https://www.geeksforgeeks.org/what-is-strictmode-in-react/)) 
+* Doesn't render any UI, just for development check.
+* Since it is a development tool, only works in developement mode - doesn't effect production build whatsoever.
+* In order to identify and detect any problems within the application and show warning messages, StrictMode renders every component inside the application twice.
+* unsafe lifecycle methods - if a legacy code has unsafe methods , it detects it and shows warnings.
+* helpful debugging tool.
+
+ [GFG](https://www.geeksforgeeks.org/what-is-strictmode-in-react/)
 
 
 ---

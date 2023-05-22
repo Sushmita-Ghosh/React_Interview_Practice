@@ -11,11 +11,16 @@ Practice questions for React Interview:
 | 2  |[SYNTHETIC EVENTS](#se)|
 | 3  |[FC VS CC](#fccc)|
 | 4  |[STRICT MODE](#sm)|
-| 3  |[REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#)|
-| 3  |[INFINITE LOOP IN REACT](#fccc)|
-| 3  |[CONTEXT API](#fccc)|
-| 3  |[FC VS CC](#fccc)|
-| 3  |[FC VS CC](#fccc)|
+| 5  |[REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#)|
+| 6  |[INFINITE LOOP IN REACT](#fccc)|
+| 7  |[CONTEXT API](#fccc)|
+| 8  |[CAN WE RETURN UNDEFINED FROM AN RENDER?](#fccc)|
+| 9  |[SHADOW DOM](#fccc)|
+| 10  |[LAZY IMPORT, DYNAMIC IMPORT](#fccc)|
+| 11  |[STATELESS COMPONENTS](#fccc)|
+| 12  |[PROP TYPES](#fccc)|
+| 13  |[ERROR BOUNDERIES](#fccc)|
+| 14  |[SERVER SIDE RENDERING OF COMPONENTS](#fccc)|
 
 
 

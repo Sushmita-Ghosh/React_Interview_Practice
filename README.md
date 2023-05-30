@@ -21,6 +21,14 @@ Practice questions for React Interview:
 | 12  |[PROP TYPES](#fccc)|
 | 13  |[ERROR BOUNDERIES](#fccc)|
 | 14  |[SERVER SIDE RENDERING OF COMPONENTS](#fccc)|
+| 15  |[CSS IN REACT || USE OF STYLED COMPONENTS || module.css](#fccc)|
+| 16  |[SIGNIFICANCE OF "KEY" ATTRIBUTE](#fccc)|
+| 17  |[DYNAMIC ROUTING](#fccc)|
+| 18  |[RENDER PROPS](#fccc)|
+| 19  |[CONTEXT API VS REDUX](#fccc)|
+| 20  |[CONTEXT API BASIC USE](#fccc)|
+| 21  |[](#fccc)|
+
 
 
 

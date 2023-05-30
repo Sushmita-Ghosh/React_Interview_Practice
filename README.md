@@ -27,7 +27,9 @@ Practice questions for React Interview:
 | 18  |[RENDER PROPS](#fccc)|
 | 19  |[CONTEXT API VS REDUX](#fccc)|
 | 20  |[CONTEXT API BASIC USE](#fccc)|
-| 21  |[](#fccc)|
+| 21  |[REACT PORTAL](#fccc)|
+| 22  |[CONTROLLED VS UNCONTROLLED COMPONENTS ](#fccc)|
+| 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|
 
 
 

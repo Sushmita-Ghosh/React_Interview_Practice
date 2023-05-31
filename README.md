@@ -7,9 +7,9 @@ Practice questions for React Interview:
 
 | Serial No  | Topic Name |
 | ------------- | ------------- |
-| 1  |[HOC](#hoc)|
-| 2  |[SYNTHETIC EVENTS](#se)|
-| 3  |[FC VS CC](#fccc)|
+| 1  |[HOC](#hoc)|✔
+| 2  |[SYNTHETIC EVENTS](#se)|✔
+| 3  |[FC VS CC](#fccc)|✔
 | 4  |[STRICT MODE](#sm)|
 | 5  |[REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#)|
 | 6  |[INFINITE LOOP IN REACT](#fccc)|
@@ -19,18 +19,19 @@ Practice questions for React Interview:
 | 10  |[LAZY IMPORT, DYNAMIC IMPORT](#fccc)|
 | 11  |[STATELESS COMPONENTS](#fccc)|
 | 12  |[PROP TYPES](#fccc)|
-| 13  |[ERROR BOUNDERIES](#eb)|
+| 13  |[ERROR BOUNDERIES](#eb)|✔
 | 14  |[SERVER SIDE RENDERING OF COMPONENTS](#fccc)|
 | 15  |[CSS IN REACT](#fccc)|
 | 16  |[SIGNIFICANCE OF "KEY" ATTRIBUTE](#fccc)|
 | 17  |[DYNAMIC ROUTING](#fccc)|
-| 18  |[RENDER PROPS](#fccc)|
+| 18  |[RENDER PROPS](#rp)| ✔
 | 19  |[CONTEXT API VS REDUX](#fccc)|
 | 20  |[CONTEXT API BASIC USE](#fccc)|
-| 21  |[REACT PORTAL](#fccc)|
+| 21  |[REACT PORTAL](#rp)| ✔
 | 22  |[CONTROLLED VS UNCONTROLLED COMPONENTS ](#fccc)|
 | 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|
-| 24  |[LIFECYCLE METHODS](#lm)|
+| 24  |[LIFECYCLE METHODS](#lm)| ✔
+| 25  |[REFS, FORWARD REFS](#ref)| ✔
 
 
 
@@ -140,7 +141,7 @@ export default App;
 
 [Ref](https://www.geeksforgeeks.org/what-are-synthetic-events-in-reactjs/)
 
-<REF2](https://itnext.io/deep-dive-into-syntheticevent-in-react-325486d9baad)
+[REF2](https://itnext.io/deep-dive-into-syntheticevent-in-react-325486d9baad)
 
 ---
 
@@ -153,10 +154,11 @@ So we had to write class components for any kind of data manipulation through st
 
 * But after hooks got introducted we got useState(for any kind of state changes) & useEffect for any lifecycle methods.
 
-* Since functional components are simple Javascript functions so the it is easier to read and test out them, Like useeffect alone can handle 3 lifecycle methods but in class components we have to write three different methods to
-achive the scenario
+* Since functional components are simple Javascript functions so the it is easier to read and test out them, Like useeffect alone can handle 3 lifecycle methods but in class components we have to write three different methods to achieve the scenario
 
-* Also like class components are internally transformed into functional components only while computation so using fucntional components reduces this extra step of convertion hence we are encouraged to use fucntional componnets over class coponents
+* Also like class components are internally transformed into functional components only while computation so using fucntional components reduces this extra step of convertion hence we are encouraged to use fucntional componnets over class coponents (** dnm)
+
+* There is no concept of this - so this is easier to understand and implement.
 
  [YT](https://www.youtube.com/watch?v=65BsgzQR-rU) 
 
@@ -178,8 +180,6 @@ Strict Mode is a react developer tool (means it only runs in development mode) f
 
  [GFG](https://www.geeksforgeeks.org/what-is-strictmode-in-react/)
 
-
----
 
 ---
 
@@ -218,5 +218,128 @@ Strict Mode is a react developer tool (means it only runs in development mode) f
 
 ---
 
+<a name="eb"></a><h2>ERROR BOUNDARIES</h2>
+---
+<br>
 
+
+
+
+---
+
+
+<a name="ref"></a><h2>REFS/ FORWARD REFS / USEREF</h2>
+---
+<br>
+
+
+
+
+---
+
+<a name="rp"></a><h2>RENDER PROPS</h2>
+---
+<br>
+
+
+
+
+---
+
+
+<a name="rp"></a><h2>REACT PORTALS</h2>
+---
+<br>
+
+React Portals provide a way to render DOM nodes that exists outside the hierarchy of the parent component.
+
+* In react application, all our components render inside the div with id="root" ; what React Portals provide is the ability to break out of this DOM tree.
+
+* Step 1: create a div element which has a different id than root - such as portal root
+``` index.html``
+```jsx
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <div id="portal-root"></div> // -> this is the first step to create React Portals
+
+  </body>
+</html>
+```
+
+
+
+* Step 2: create a component - with an UI which we want inside out portal-root div. We have to use ReactDOM.createPortal -> wherein we can pass the JSX/string that we want to show as part of the component & second parameter is where we want to place the component in the DOM (in our case portal-root div)
+
+``` PortalDemo.js ```
+``` jsx
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+function PortalDemo() {
+	return ReactDOM.createPortal(
+		<h1>Portals Demo</h1>,
+		document.getElementById('portal-root')
+	)
+}
+
+export default PortalDemo
+```
+
+* Step 3: Import it where you want to use - (App.js)
+```App.js```
+```jsx
+import React, { Component } from 'react'
+import './App.css'
+import PortalDemo from './components/PortalDemo'
+
+class App extends Component {
+	render() {
+		return (
+			<div className="App">
+					<PortalDemo />
+			</div>
+		)
+	}
+}
+
+export default App
+```
+
+* How it will appear on inspect element: 
+![image](https://github.com/Sushmita-Ghosh/React_Interview_Practice/assets/82622059/22b837bc-9342-40dd-be6f-a651cade1262)
+
+* Use Case: Having to deal with the parent's class's css when the child component is a modal, popup or tooltip
+* Example : [CODESANDBOX LINK BY K.C DODDS](https://codesandbox.io/s/00254q4n6p?file=/src/index.js:2214-2234)
+* In the above example the Modal UI will breaks as the parent div has a max width - but if we are using portals , it is fine.
+
+#### EVENT BUBBLING IN PORTALS:
+* Eventhough the portal is not inside the React DOM tree, it behaves like a react child in every other way.
+* SO an event triggered from inside a portal will propagate to ancestors in React tree(id = "root") even if they are not within the real dom tree. (id = "portal-root")
+* Example https://codepen.io/gaearon/pen/jGBWpE
+* In the above example the Modal ( which is React portal component) contains a child component with a button click . When we click on the button the even bubbles up in the tree and we are still able to see the clicks count increasing
+ 
+ ![image](https://github.com/Sushmita-Ghosh/React_Interview_Practice/assets/82622059/43745172-3fa4-4d11-a37b-b8a619d46108)
+
+[YT](https://www.youtube.com/watch?v=HpHLa-5Wdys&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=31)
+
+
+---
 

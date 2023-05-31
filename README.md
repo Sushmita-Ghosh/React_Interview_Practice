@@ -254,11 +254,11 @@ export class ErrorBoundary extends Component {
 			hasError: false
 		}
 	}
-	<!-- 	 *takes in error as an argument* -->
+		 // *takes in error as an argument*
 	static getDerivedStateFromError(error) {
 		return { hasError: true }
 	}
-	<!-- used to log the error; info is the information related to the error  -->
+	// used to log the error; info is the information related to the error 
 	componentDidCatch(error, info) {
 		console.log(error)
 		console.log(info)
@@ -289,7 +289,7 @@ class App extends Component {
 			<div className="App">
 				<Hero heroName="Batman" />
 				<Hero heroName="Superman" />
-				<!-- 	Here we can wrap only the component that is likely to throw an error or each of the hero components -->
+				// Here we can wrap only the component that is likely to throw an error or each of the hero components
 				<ErrorBoundary>
 					<Hero heroName="Joker" />
 				</ErrorBoundary> 

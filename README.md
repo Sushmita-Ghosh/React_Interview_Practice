@@ -431,6 +431,7 @@ export default App
 
 
 [YT](https://www.youtube.com/watch?v=NdapMDgNhtE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=36)
+[RENDER PROPS IN FC](https://stackoverflow.com/questions/59481733/hocs-and-render-props-with-functional-components-in-react-16)
 
 ---
 

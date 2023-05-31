@@ -19,7 +19,7 @@ Practice questions for React Interview:
 | 10  |[LAZY IMPORT, DYNAMIC IMPORT](#fccc)|
 | 11  |[STATELESS COMPONENTS](#fccc)|
 | 12  |[PROP TYPES](#fccc)|
-| 13  |[ERROR BOUNDERIES](#fccc)|
+| 13  |[ERROR BOUNDERIES](#eb)|
 | 14  |[SERVER SIDE RENDERING OF COMPONENTS](#fccc)|
 | 15  |[CSS IN REACT](#fccc)|
 | 16  |[SIGNIFICANCE OF "KEY" ATTRIBUTE](#fccc)|
@@ -30,6 +30,7 @@ Practice questions for React Interview:
 | 21  |[REACT PORTAL](#fccc)|
 | 22  |[CONTROLLED VS UNCONTROLLED COMPONENTS ](#fccc)|
 | 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|
+| 24  |[LIFECYCLE METHODS](#lm)|
 
 
 
@@ -179,4 +180,43 @@ Strict Mode is a react developer tool (means it only runs in development mode) f
 
 
 ---
+
+---
+
+
+<a name="LM"></a><h2>LIFECYCLE METHODS</h2>
+---
+<br>
+
+#### Mounting:
+* super(props) is used to initialise the parent class constructor - and also by doing this we get to use the this.props
+* getDerivedStateFromProps takes state and props as arguments - and is triggered when we want to change the states on basis of props over time. It can return null or new  updated state.
+* except componentDidMount we should not create sideeffects on any other lifecycle hooks
+* render method is the only required method
+* order of execution constructor -> getderivedStateFromProps -> render -> componentDidMount 
+
+#### Updating:
+* Update lifecycle methods gets triggered on change of props or state in react component.
+* getDerivedStateFromProps ->  gets triggered on every re-render -> rarely used
+* shouldComponentUpdate -> dictated if at all the component should get rendered or not - by default on change of state or props the component gets re rendered - to prevernt this default behavior we can return false from this method - we can compare the existing state & props with the new state and props and if there is no change we can return false. (performance optimization)
+* render () -> returns jsx
+* getSnapshotBeforeUpdate -> called right before the changes in thevirtual DOM are to be reflected in the real DOM - takes prevProps and prevState as input- returns a value or null - rarely used
+* componentDidUpdate -> called at last - only once - we can make ajax calls -> takes props and state as input -> and snapshot - 
+* order of execution -> getDerivedStateFromProps ->shouldComponentUpdate -> render -> getSnapshotBeforeUpdate- -> componentDidUpdate
+
+### Unmounting:
+* only one method componentWillUnmount
+![image](https://github.com/Sushmita-Ghosh/React_Interview_Practice/assets/82622059/06f01c47-44ae-46ee-989a-ba8d5881e462)
+
+### Error Handling
+![image](https://github.com/Sushmita-Ghosh/React_Interview_Practice/assets/82622059/95806a6f-d605-4aa0-9ec1-e5342941adf3)
+
+
+[YT](https://www.youtube.com/watch?v=KDXZibVdiEI&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=23)
+[YT Updating] (https://www.youtube.com/watch?v=DyPkojd1fas&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=24)
+![image](https://github.com/Sushmita-Ghosh/React_Interview_Practice/assets/82622059/a4703a16-ac75-4ade-a420-4b4914388b4c)
+
+---
+
+
 

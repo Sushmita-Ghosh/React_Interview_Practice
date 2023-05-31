@@ -289,7 +289,7 @@ class App extends Component {
 			<div className="App">
 				<Hero heroName="Batman" />
 				<Hero heroName="Superman" />
-				// Here we can wrap only the component that is likely to throw an error or each of the hero components
+<!-- 				Here we can wrap only the component that is likely to throw an error or each of the hero components -->
 				<ErrorBoundary>
 					<Hero heroName="Joker" />
 				</ErrorBoundary> 

@@ -11,28 +11,29 @@ Practice questions for React Interview:
 | 2  |[SYNTHETIC EVENTS](#se)|✔
 | 3  |[FC VS CC](#fccc)|✔
 | 4  |[STRICT MODE](#sm)|✔
-| 5  |[REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#)|
-| 6  |[INFINITE LOOP IN REACT](#fccc)|
-| 7  |[CONTEXT API](#fccc)|
-| 8  |[CAN WE RETURN UNDEFINED FROM AN RENDER?](#fccc)|
-| 9  |[SHADOW DOM](#fccc)|
-| 10  |[LAZY IMPORT, DYNAMIC IMPORT](#fccc)|
-| 11  |[STATELESS COMPONENTS](#fccc)|
-| 12  |[PROP TYPES](#fccc)|
+| 5  |[REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#rf)|✔
+| 6  |[INFINITE LOOP IN REACT](#fccc)|✔
+| 7  |[ADVANTAGES OF STYLED COMPONENTS](#sc)|✔
+| 8  |[CAN WE RETURN UNDEFINED FROM AN RENDER?](#fccc)|✔
+| 9  |[SHADOW DOM](#fccc)|✔
+| 10  |[LAZY IMPORT, DYNAMIC IMPORT](#fccc)|✔
+| 11  |[STATELESS COMPONENTS](#fccc)|✔
+| 12  |[PROP TYPES](#fccc)|✔
 | 13  |[ERROR BOUNDERIES](#eb)|✔
-| 14  |[SERVER SIDE RENDERING OF COMPONENTS](#fccc)|
-| 15  |[CSS IN REACT](#css)|
-| 16  |[SIGNIFICANCE OF "KEY" ATTRIBUTE](#fccc)|
-| 17  |[DYNAMIC ROUTING](#fccc)|
+| 14  |[SERVER SIDE RENDERING OF COMPONENTS](#fccc)|✔
+| 15  |[CSS IN REACT](#css)|✔
+| 16  |[SIGNIFICANCE OF "KEY" ATTRIBUTE](#fccc)|✔
+| 17  |[DYNAMIC ROUTING](#fccc)|✔
 | 18  |[RENDER PROPS](#rp)| ✔
-| 19  |[CONTEXT API VS REDUX](#fccc)|
-| 20  |[CONTEXT API BASIC USE](#fccc)|
+| 19  |[CONTEXT API VS REDUX](#fccc)|✔
+| 20  |[CONTEXT API BASIC USE](#fccc)|✔
 | 21  |[REACT PORTAL](#rp)| ✔
-| 22  |[CONTROLLED VS UNCONTROLLED COMPONENTS ](#fccc)|
-| 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|
+| 22  |[CONTROLLED VS UNCONTROLLED COMPONENTS ](#cvu)|✔
+| 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|✔
 | 24  |[LIFECYCLE METHODS](#lm)| ✔
 | 25  |[REFS, FORWARD REFS](#ref)| ✔
 | 26  |[CUSTOM HOOKS](#ref)| ✔
+| 27  |[PURE COMPONENTS / MEMO ](#pc)| ✔
 
 
 
@@ -542,7 +543,7 @@ export default App
 ---
 
 
-<a name="ref"></a><h2>REFS/ FORWARD REFS / USEREF</h2>
+<a name="sc"></a><h2>ADVANTAGES OF STYLED COMPONENTS</h2>
 ---
 <br>
 
@@ -550,3 +551,134 @@ export default App
 
 
 ---
+
+<a name="ref"></a><h2>REFS/ FORWARD REFS / USEREF</h2>
+---
+<br>
+
+* Refs make it possible to access DOM nodes directly within the react component,
+
+
+---
+
+<a name="cvu"></a><h2>CONTROLLED VS UNCONTROLLED COMPONENTS</h2>
+---
+<br>
+
+* Uncontrolled components are those components which are not controlled by React state, and and are handled by the DOM (Document Object Model). So in order to access any value that has been entered we take the help of refs.
+* The main problem in uncontrolled components is that the values are not updated automatically.
+
+```Uncontrolled.jsx```
+```jsx
+import React from "react";
+
+export default function Uncontrolled() {
+  let name = React.createRef();
+  let age = React.createRef();
+
+  const submit = () => {
+    console.log(name.current.value);
+    console.log(age.current.value);
+  };
+  return (
+    <>
+      <div>Uncontrolled</div>
+      <input type="text" placeholder="name" ref={name} />
+      <input type="text" placeholder="age" ref={age} />
+      <button onClick={submit}>Submit</button>
+    </>
+  );
+}
+
+```
+
+* Controlled Components are those in which form’s data is handled by the component’s state. It takes its current value through props and makes changes through callbacks like onClick, onChange, etc.
+
+```Controlled.jsx```
+```jsx
+import { useState } from "react";
+
+export default function Controlled() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function onSubmit() {
+    console.log("Email value: " + email);
+    console.log("Password value: " + password);
+  }
+  return (
+    <>
+      <div>Controlled</div>
+      <form onSubmit={onSubmit}>
+        <input
+          type="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <input type="submit" value="Submit" />
+      </form>
+    </>
+  );
+}
+
+```
+
+#### KEY DIFFERENCES:
+* In a controlled component react, state handles all the form data, whereas, in an uncontrolled component, the HTML form element data is managed by only the DOM.
+* If you are using a controlled component, you are in control of your form input values. The developer can decide what to insert or not and where to insert it.
+* It is a must to use react state in a controlled component to handle the dynamic form data. It is optional for the uncontrolled component to have a state, but it must use react Ref.
+* Controlled components are predictable since the component manages the state of the form elements.
+* Because the form elements may change or be impacted by external sources over the lifespan of a component, uncontrolled components are not predictable.
+* You can efficiently perform validation tests on each keystroke the user makes by using controlled components. Whatever alters the form components is irrelevant since their values are secure in our local state, where we carry out the validation.
+* You can perform validation on the input data only after the form is submitted in the uncontrolled components in react.
+
+
+[CREATEREF VS USEREF](https://www.geeksforgeeks.org/difference-between-useref-and-createref-in-reactjs/)
+[SCALERS BLOG](https://www.scaler.com/topics/controlled-and-uncontrolled-components-in-react/)
+
+---
+
+<a name="rf"></a><h2>REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO</h2>
+---
+<br>
+
+
+
+
+---
+
+<a name="pc"></a><h2>PURE COMPONENTS / MEMO</h2>
+---
+<br>
+
+
+
+
+---
+
+
+
+
+*| 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|✔
+| 6  |[INFINITE LOOP IN REACT](#fccc)|✔
+| 8  |[CAN WE RETURN UNDEFINED FROM AN RENDER?](#fccc)|✔
+| 9  |[SHADOW DOM](#fccc)|✔
+| 10  |[LAZY IMPORT, DYNAMIC IMPORT](#fccc)|✔
+| 11  |[STATELESS COMPONENTS](#fccc)|
+| 12  |[PROP TYPES](#fccc)|
+| 14  |[SERVER SIDE RENDERING OF COMPONENTS](#fccc)|
+| 15  |[CSS IN REACT](#css)|✔
+| 16  |[SIGNIFICANCE OF "KEY" ATTRIBUTE](#fccc)|
+| 17  |[DYNAMIC ROUTING](#fccc)|
+| 19  |[CONTEXT API VS REDUX](#fccc)|
+| 20  |[CONTEXT API BASIC USE](#fccc)|
+*

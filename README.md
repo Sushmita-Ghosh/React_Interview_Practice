@@ -10,7 +10,7 @@ Practice questions for React Interview:
 | 1  |[HOC](#hoc)|✔
 | 2  |[SYNTHETIC EVENTS](#se)|✔
 | 3  |[FC VS CC](#fccc)|✔
-| 4  |[STRICT MODE](#sm)|
+| 4  |[STRICT MODE](#sm)|✔
 | 5  |[REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#)|
 | 6  |[INFINITE LOOP IN REACT](#fccc)|
 | 7  |[CONTEXT API](#fccc)|
@@ -21,7 +21,7 @@ Practice questions for React Interview:
 | 12  |[PROP TYPES](#fccc)|
 | 13  |[ERROR BOUNDERIES](#eb)|✔
 | 14  |[SERVER SIDE RENDERING OF COMPONENTS](#fccc)|
-| 15  |[CSS IN REACT](#fccc)|
+| 15  |[CSS IN REACT](#css)|
 | 16  |[SIGNIFICANCE OF "KEY" ATTRIBUTE](#fccc)|
 | 17  |[DYNAMIC ROUTING](#fccc)|
 | 18  |[RENDER PROPS](#rp)| ✔
@@ -32,6 +32,7 @@ Practice questions for React Interview:
 | 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|
 | 24  |[LIFECYCLE METHODS](#lm)| ✔
 | 25  |[REFS, FORWARD REFS](#ref)| ✔
+| 26  |[CUSTOM HOOKS](#ref)| ✔
 
 
 
@@ -222,8 +223,89 @@ Strict Mode is a react developer tool (means it only runs in development mode) f
 ---
 <br>
 
+Whenever we face an error in our application , react unmounts the whole component, - in such cases it is always better to show a fallback UI and catch the error.
+
+* A class component that implements either or both the lifecycle methods getDerivedStatefromError & componentDidCatch becomes a error boundary.
+* The static method getDerivedStateFromError is used to render a fallback UI after an error is thrown, and the componnetDidCatch method is used to log the error to the console.
+
+```Hero.js```
+```jsx
+import React from 'react'
+
+function Hero ({ heroName }) {
+  if (heroName === 'Joker') {
+    throw new Error(' Not a hero!')
+  }
+  return <h1>{heroName}</h1>
+}
+
+export default Hero
+```
+
+```ErrorBoundary.js```
+```jsx
+import React, { Component } from 'react'
+
+export class ErrorBoundary extends Component {
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			hasError: false
+		}
+	}
+	<!-- 	 *takes in error as an argument* -->
+	static getDerivedStateFromError(error) {
+		return { hasError: true }
+	}
+	<!-- used to log the error; info is the information related to the error  -->
+	componentDidCatch(error, info) {
+		console.log(error)
+		console.log(info)
+	}
+
+	render() {
+		if (this.state.hasError) {
+			return <h1>Something went wrong.</h1>
+		}
+		return this.props.children
+	}
+}
+
+export default ErrorBoundary
+```
+```App.js```
+```jsx
+import React, { Component } from 'react'
+import './App.css'
+
+import Hero from './components/Hero'
+import ErrorBoundary from './components/ErrorBoundary'
 
 
+class App extends Component {
+	render() {
+		return (
+			<div className="App">
+				<Hero heroName="Batman" />
+				<Hero heroName="Superman" />
+				<!-- 	Here we can wrap only the component that is likely to throw an error or each of the hero components -->
+				<ErrorBoundary>
+					<Hero heroName="Joker" />
+				</ErrorBoundary> 
+			</div>
+		)
+	}
+}
+
+export default App
+```
+
+* Below will be the output when we wrap each Hero in Error Boundary
+![image](https://github.com/Sushmita-Ghosh/React_Interview_Practice/assets/82622059/1dad38e0-6d8c-466b-bab0-424dc7f8709d)
+
+
+[YT] (https://www.youtube.com/watch?v=DNYXgtZBRPE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=32)
 
 ---
 
@@ -339,6 +421,15 @@ export default App
  ![image](https://github.com/Sushmita-Ghosh/React_Interview_Practice/assets/82622059/43745172-3fa4-4d11-a37b-b8a619d46108)
 
 [YT](https://www.youtube.com/watch?v=HpHLa-5Wdys&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=31)
+
+
+---
+
+<a name="css"></a><h2>CSS IN REACT</h2>
+---
+<br>
+
+
 
 
 ---

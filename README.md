@@ -289,7 +289,7 @@ class App extends Component {
 			<div className="App">
 				<Hero heroName="Batman" />
 				<Hero heroName="Superman" />
-<!-- 				Here we can wrap only the component that is likely to throw an error or each of the hero components -->
+				 // Here we can wrap only the component that is likely to throw an error or each of the hero components
 				<ErrorBoundary>
 					<Hero heroName="Joker" />
 				</ErrorBoundary> 
@@ -305,26 +305,132 @@ export default App
 ![image](https://github.com/Sushmita-Ghosh/React_Interview_Practice/assets/82622059/1dad38e0-6d8c-466b-bab0-424dc7f8709d)
 
 
+
+* Error Bounderies can catch errors during rendering, in lifecycle methods and in constructor of the whole tree below them, but can catch error in event handlers, to catch errors in event handles we need to use try-catch block.
+
+
 [YT] (https://www.youtube.com/watch?v=DNYXgtZBRPE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=32)
 
 ---
 
 
-<a name="ref"></a><h2>REFS/ FORWARD REFS / USEREF</h2>
----
-<br>
-
-
-
-
----
-
 <a name="rp"></a><h2>RENDER PROPS</h2>
 ---
 <br>
 
+The term "render prop" is a technique for *sharing code* between react components using *a prop whose value is a function*
+
+* The render name is kind of the convention but we can change it to something else, code will still work.
+* <b> Example brief </b> : We have two counters : ClickCounter ( value of count increases on click) & HoverCounter (value increases on hover) - since these are sharing functionalities , we can use renderprops pattern to pass the count and increment count to each.
+
+	
+***Below is the container which implements the render props pattern***
+```Counter.js```
+```jsx
+import React, { Component } from 'react'
+
+class Counter extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      count: 0
+    }
+  }
+
+  incrementCount = () => {
+    this.setState(prevState => {
+      return { count: prevState.count + 1 }
+    })
+  }
+  render() {
+    return (
+      <div>
+        {this.props.render(this.state.count, this.incrementCount)} // this line means that it will render whatever is passed to the render prop
+      </div>
+    )
+  }
+}
+
+export default Counter
+```
+
+*The below two counters use the props counter and increment counter*
 
 
+```ClickCounterTwo.js```
+```jsx
+import React, { Component } from 'react'
+
+class ClickCounterTwo extends Component {
+
+  render() {
+    const { count, incrementCount } = this.props
+		return <button onClick={incrementCount}>{this.props.name } Clicked {count} times</button>
+	}
+}
+
+export default ClickCounterTwo
+```
+
+
+```HoverCounterTwo.js```
+```jsx
+import React, { Component } from 'react'
+
+class HoverCounterTwo extends Component {
+
+	render() {
+		const { count, incrementCount } = this.props
+		return <h2 onMouseOver={incrementCount}>Hovered {count} times</h2>
+	}
+}
+
+export default HoverCounterTwo
+```
+
+***Now in App.js we can use the Counter component and use the "render" prop to pass the count and incrementCount***
+
+```App.js```
+```jsx
+import React, { Component } from 'react'
+import './App.css'
+import Counter from './components/Counter'
+import ClickCounterTwo from './components/ClickCounterTwo'
+import HoverCounterTwo from './components/HoverCounterTwo'
+
+class App extends Component {
+	render() {
+		return (
+			<div className="App">
+				 <Counter
+				 // in below state we are using the render to pass a function as a prop for the counters
+					render={(count, incrementCount) =>
+					<ClickCounterTwo
+						count={count}
+						incrementCount={incrementCount}>
+					</ClickCounterTwo>}>
+				</Counter>
+				<Counter
+					render={(count, incrementCount) =>
+					<HoverCounterTwo
+						count={count}
+						incrementCount={incrementCount}>
+					</HoverCounterTwo>}>
+				</Counter> 
+			</div>
+		)
+	}
+}
+
+export default App
+```
+
+
+***Even if they share the count & increment count their instances are different so no conflict will happen. ***
+
+
+[YT](https://www.youtube.com/watch?v=NdapMDgNhtE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=36)
 
 ---
 
@@ -434,3 +540,12 @@ export default App
 
 ---
 
+
+<a name="ref"></a><h2>REFS/ FORWARD REFS / USEREF</h2>
+---
+<br>
+
+
+
+
+---

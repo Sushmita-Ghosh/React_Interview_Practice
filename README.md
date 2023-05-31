@@ -286,7 +286,7 @@ React Portals provide a way to render DOM nodes that exists outside the hierarch
 
 
 
-* Step 2: create a component - with an UI which we want inside out portal-root div. We have to use ReactDOM.createPortal -> wherein we can pass the JSX/string that we want to show as part of the component & second parameter is where we want to place the component in the DOM (in our case portal-root div)
+* Step 2: create a component - with an UI which we want inside out portal-root div. We have to use ReactDOM.createPortal -> wherein we can pass the string/Component that we want to show as part of the component & second parameter is where we want to place the component in the DOM (in our case portal-root div)
 
 ``` PortalDemo.js ```
 ``` jsx

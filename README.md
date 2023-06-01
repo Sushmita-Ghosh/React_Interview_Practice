@@ -307,7 +307,7 @@ export default App
 
 
 
-* Error Bounderies can catch errors during rendering, in lifecycle methods and in constructor of the whole tree below them, but can catch error in event handlers, to catch errors in event handles we need to use try-catch block.
+* Error Bounderies can catch errors during rendering, in lifecycle methods and in constructor of the whole tree below them, but can't catch error in event handlers, to catch errors in event handles we need to use try-catch block.
 
 
 [YT] (https://www.youtube.com/watch?v=DNYXgtZBRPE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=32)

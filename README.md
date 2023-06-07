@@ -32,7 +32,7 @@ Practice questions for React Interview:
 | 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|✔
 | 24  |[LIFECYCLE METHODS](#lm)| ✔
 | 25  |[REFS, FORWARD REFS](#ref)| ✔
-| 26  |[CUSTOM HOOKS](#ref)| ✔
+| 26  |[CUSTOM HOOKS](#chook)| ✔
 | 27  |[PURE COMPONENTS / MEMO ](#pc)| ✔
 
 
@@ -665,6 +665,18 @@ export default function Controlled() {
 
 
 ---
+
+<a name="chook"></a><h2>CUSTOM HOOKS</h2>
+---
+<br>
+
+* Custom Hooks are basically Javascript functions - whose name starts with "use". 
+* We mainly use Custom Hooks to share logic between components.
+
+
+
+---
+
 
 
 

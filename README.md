@@ -12,7 +12,7 @@ Practice questions for React Interview:
 | 3  |[FC VS CC](#fccc)|✔
 | 4  |[STRICT MODE](#sm)|✔
 | 5  |[REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#rf)|✔
-| 6  |[INFINITE LOOP IN REACT](#fccc)|✔
+| 6  |[INFINITE LOOP IN REACT](#iloop)|✔
 | 7  |[ADVANTAGES OF STYLED COMPONENTS](#sc)|✔
 | 8  |[CAN WE RETURN UNDEFINED FROM AN RENDER?](#fccc)|✔
 | 9  |[SHADOW DOM](#fccc)|✔
@@ -743,12 +743,59 @@ export default useDocumentTitle
 
 ---
 
+<a name="iloop"></a><h2>INFINITE LOOP IN REACT</h2>
+---
+<br>
+
+### POTENTIAL WAYS TO CREATE AN INFINITE LOOP IN REACT
+
+* Updating the state inside the render: If you update the state directly inside your render method or a body of a functional component, it will cause an infinite loop.
+   
+```javascript
+   function App() {
+  const [count, setCount] = useState(0);
+
+  setCount(1); // infinite loop
+
+  return ...
+}
+```
+ 
+### FIX:
+We have to use useEffect with an empty array as a dependency.
+
+* Incorrectly set event handlers : We need to provide a function to the onClick, not the **result of the function execution.** By executing a function before setting a handler, you update a state inside the render, which causes an infinite loop.
+
+```javascript
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={setCount(1)}>Submit</button> // infinite loop
+  );
+}
+```
+
+### FIX:
+Set a function to onClick event.
+
+```javascript
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={() => setCount(1)}>Submit</button> // infinite loop
+  );
+}
+```
+
+---
+
 
 
 
 
 *| 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|✔
-| 6  |[INFINITE LOOP IN REACT](#fccc)|✔
 | 8  |[CAN WE RETURN UNDEFINED FROM AN RENDER?](#fccc)|✔
 | 9  |[SHADOW DOM](#fccc)|✔
 | 10  |[LAZY IMPORT, DYNAMIC IMPORT](#fccc)|✔

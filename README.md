@@ -789,6 +789,8 @@ export default function App() {
 }
 ```
 
+[BLOG](https://alexsidorenko.com/blog/react-infinite-loop/)
+
 ---
 
 

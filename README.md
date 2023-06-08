@@ -671,8 +671,74 @@ export default function Controlled() {
 <br>
 
 * Custom Hooks are basically Javascript functions - whose name starts with "use". 
-* We mainly use Custom Hooks to share logic between components.
+* Custom Hooks can call other hooks if required.
+* We mainly use Custom Hooks to share logic between two or more components - Alternative to HOC & render props.
+* We can build our own custom hooks by extracting component logic into resusable functions.
 
+```useDocumentTitle Custom Hook```
+
+* The example is that we have two files DocTitleOne & DocTitleTwo - so these are two components which have the same logic as to that they are updating the document title by a counter hence this is reusable logic and we can extract it into a **custom hook**.
+
+* Example Video : [useDocumentTitle Hook](https://www.youtube.com/watch?v=4yp6T-hF5ZY&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=74)
+* In the below example the reference to the count variable are different - so none of them are effected.
+
+
+```DocTitleOne.js```
+
+```javascript
+import React, {useState} from 'react'
+import useDocumentTitle from '../hooks/useDocumentTitle';
+
+function DocTitleOne() {
+  const [count, setCount] = useState(0)
+  useDocumentTitle(count)
+
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Count - {count}</button>
+    </div>
+  )
+}
+
+export default DocTitleOne
+```
+
+
+```DocTitleTwo.js```
+
+```javascript
+import React, {useState} from 'react'
+import useDocumentTitle from '../hooks/useDocumentTitle';
+
+function DocTitleTwo() {
+  const [count, setCount] = useState(0)
+  useDocumentTitle(count)
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Count - {count}</button>
+    </div>
+  )
+}
+
+export default DocTitleTwo
+```
+
+``` useDocumentTitle.js```
+
+```javascript
+import {useEffect} from 'react'
+
+function useDocumentTitle(count) {
+  useEffect(() => {
+    document.title = `Count ${count}`
+  }, [count])
+}
+
+export default useDocumentTitle
+```
+
+
+[YT](https://www.youtube.com/watch?v=l-s9MgoMwTI&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=73)
 
 
 ---

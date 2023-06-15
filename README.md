@@ -34,6 +34,8 @@ Practice questions for React Interview:
 | 25  |[REFS, FORWARD REFS](#ref)| ✔
 | 26  |[CUSTOM HOOKS](#chook)| ✔
 | 27  |[PURE COMPONENTS / MEMO ](#pc)| ✔
+| 28  |[Why fragments are better than container divs? ](#frag)| ✔
+
 
 
 
@@ -883,7 +885,7 @@ export default function App() {
 
 
 
-<a name="rf"></a><h2>Why fragments are better than container divs?</h2>
+<a name="frag"></a><h2>Why fragments are better than container divs?</h2>
 ---
 <br>
 

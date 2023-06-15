@@ -14,7 +14,7 @@ Practice questions for React Interview:
 | 5  |[REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#rf)|✔
 | 6  |[INFINITE LOOP IN REACT](#iloop)|✔
 | 7  |[ADVANTAGES OF STYLED COMPONENTS](#sc)|✔
-| 8  |[CAN WE RETURN UNDEFINED FROM AN RENDER?](#fccc)|✔
+| 8  |[CAN WE RETURN UNDEFINED FROM AN RENDER?](#undef)|✔
 | 9  |[SHADOW DOM](#fccc)|✔
 | 10  |[LAZY IMPORT, DYNAMIC IMPORT](#fccc)|✔
 | 11  |[STATELESS COMPONENTS](#fccc)|✔
@@ -29,7 +29,7 @@ Practice questions for React Interview:
 | 20  |[CONTEXT API BASIC USE](#fccc)|✔
 | 21  |[REACT PORTAL](#rp)| ✔
 | 22  |[CONTROLLED VS UNCONTROLLED COMPONENTS ](#cvu)|✔
-| 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|✔
+| 23  |[REACT.LAZY, REACT.SUSPENSE](#rsrl)|✔
 | 24  |[LIFECYCLE METHODS](#lm)| ✔
 | 25  |[REFS, FORWARD REFS](#ref)| ✔
 | 26  |[CUSTOM HOOKS](#chook)| ✔
@@ -909,8 +909,44 @@ Below are the list of reasons to prefer fragments over container DOM elements,
 ---
 
 
-*| 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|✔
-| 8  |[CAN WE RETURN UNDEFINED FROM AN RENDER?](#fccc)|✔
+<a name="rsrl"></a><h2>REACT SUSPENCE VS REACT LAZY , CODE SPLITTING</h2>
+---
+<br>
+
+* React apps generally uses bundlers like webpack to efficiently bundle our code into a minified format- but this doesn't always guarantee   
+   
+```javascript
+
+```
+ 
+### FIX:
+
+
+[REF](https://www.youtube.com/watch?v=IBrmsyy9R94)
+
+---
+
+
+
+<a name="undef"></a><h2>CAN WE RETURN UNDEFINED FROM AN RENDER?</h2>
+---
+<br>
+
+### 
+
+* 
+   
+```javascript
+
+```
+
+
+[REF](https://www.youtube.com/watch?v=IBrmsyy9R94)
+
+---
+
+
+*
 | 9  |[SHADOW DOM](#fccc)|✔
 | 10  |[LAZY IMPORT, DYNAMIC IMPORT](#fccc)|✔
 | 11  |[STATELESS COMPONENTS](#fccc)|

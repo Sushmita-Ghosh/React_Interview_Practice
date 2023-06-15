@@ -620,7 +620,7 @@ export class FRParentInput extends Component {
 export default FRParentInput
 ```
 
-```App.js
+```App.js```
 
 ```javascript
 import FRParentInput from './components/FRParentInput'

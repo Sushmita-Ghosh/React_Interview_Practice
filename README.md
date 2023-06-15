@@ -547,6 +547,9 @@ export default App
 ---
 <br>
 
+### WHAT ARE STYLED COMPONENTS? 
+
+* Styled components are 
 
 
 
@@ -557,6 +560,91 @@ export default App
 <br>
 
 * Refs make it possible to access DOM nodes directly within the react component,
+
+
+
+### REF FORWARDING:
+* It is a technique to pass a  ref through a component to one of its children.
+* It is done by using the React.forwardRef function - which revieves a components as an input.
+* Every func comp recieves props by default as a parameter , but when we use createRef - we can access the ref as a second attribute
+* The "ref" parameter points to the value of the ref attribute of the parent comp.
+
+For example: We have a ref defined in parent component - on click of a button in parent component we want the child input to be focused
+
+
+
+```FRInput.js```  --> child comp 
+```javascript
+import React from 'react'
+
+const FRInput = React.forwardRef((props, ref) => {
+	return (
+		<div>
+      <input type="text" ref={ref} />
+		</div>
+	)
+})
+
+export default FRInput
+```
+
+
+```FRParentInput.js``` 
+
+```javascript
+import React, { Component } from 'react'
+import FRInput from './FRInput'
+
+export class FRParentInput extends Component {
+  constructor(props) {
+    super(props)
+    this.inputRef = React.createRef()
+  }
+
+  clickHandler = () => {
+    this.inputRef.current.focus()
+  }
+
+	render() {
+		return (
+			<div>
+        <FRInput ref={this.inputRef} />
+        <button onClick={this.clickHandler}>Focus Input</button>
+			</div>
+		)
+	}
+}
+
+export default FRParentInput
+```
+
+```App.js
+
+```javascript
+import FRParentInput from './components/FRParentInput'
+
+
+class App extends Component {
+	render() {
+		return (
+			<div className="App">
+				<FRParentInput />
+			</div>
+		)
+	}
+}
+
+export default App
+```
+
+
+#### Summary:
+
+> The parent comp creates a ref (React.createRef) and attaches it to the child comp
+> The child comp recieves the ref as prop and attached it to the native "input" element - such that the parent can now access the native input element.
+> The child comp forwards the ref from parent to the native inp element.
+
+> We can use ref forwarding while dealing with HOC or external library in react.
 
 
 ---
@@ -795,6 +883,19 @@ export default function App() {
 
 
 
+<a name="rf"></a><h2>Why fragments are better than container divs?</h2>
+---
+<br>
+
+Below are the list of reasons to prefer fragments over container DOM elements,
+
+* Fragments are a bit faster and use less memory by not creating an extra DOM node. This only has a real benefit on very large and deep trees.
+* Some CSS mechanisms like Flexbox and CSS Grid have a special parent-child relationships, and adding divs in the middle makes it hard to keep the desired layout.
+* The DOM Inspector is less cluttered.
+
+[REF](https://github.com/sudheerj/reactjs-interview-questions#why-fragments-are-better-than-container-divs)
+
+---
 
 
 *| 23  |[REACT.LAZY, REACT.SUSPENSE](#fccc)|✔

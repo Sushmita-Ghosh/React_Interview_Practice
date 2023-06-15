@@ -551,9 +551,16 @@ export default App
 
 ### WHAT ARE STYLED COMPONENTS? 
 
-* Styled components are 
+* ![image](https://github.com/Sushmita-Ghosh/React_Interview_Practice/assets/82622059/4222fec5-59ab-4747-8faa-41a251b4f3cd)
 
+#### BENEFITS:
 
+* No class name bugs: The library generated unique classname for each style. No worries of overlap, or duplication of classnames.
+* Easier deletion of css: If we are working on a large codebase, finding the unused css classes bacomes difficult. If a component is not being used - deleting it will delete its styles as well.
+* Dynamic styling: In react, since props drive styles - sometimes styles should be modified based on props - styled components allow us to do that.
+* Painless Maintenance: It is very easy to maintain the styles when using sc - as we do not have to move across files to access the styles affecting our component.
+* Vendor prefixing: For some of the newer css features , we have explicitly write the css property for differnt browsers - but for styled comp - we can write standard css and the rest is handled by the library.
+* 
 
 ---
 
@@ -642,8 +649,10 @@ export default App
 
 #### Summary:
 
-> The parent comp creates a ref (React.createRef) and attaches it to the child comp
+> The parent comp creates a ref (React.createRef) and attaches it to the child comp.
+
 > The child comp recieves the ref as prop and attached it to the native "input" element - such that the parent can now access the native input element.
+
 > The child comp forwards the ref from parent to the native inp element.
 
 > We can use ref forwarding while dealing with HOC or external library in react.

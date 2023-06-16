@@ -26,7 +26,7 @@ Practice questions for React Interview:
 | 17  |[DYNAMIC ROUTING](#fccc)|✔
 | 18  |[RENDER PROPS](#rp)| ✔
 | 19  |[CONTEXT API VS REDUX](#fccc)|✔
-| 20  |[CONTEXT API BASIC USE](#fccc)|✔
+| 20  |[CONTEXT API BASIC USE](#conba)|✔
 | 21  |[REACT PORTAL](#rp)| ✔
 | 22  |[CONTROLLED VS UNCONTROLLED COMPONENTS ](#cvu)|✔
 | 23  |[REACT.LAZY, REACT.SUSPENSE](#rsrl)|✔
@@ -553,7 +553,12 @@ There are various ways to apply css in react :
 * But in css modules since the classes are locally scoped they are not applicable to children component
 
 
+``` Inline.js ```
+``` javascript
+```
 
+
+[YT](https://www.youtube.com/watch?v=j5P9FHiBVNo&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=20)
 
 ---
 
@@ -948,8 +953,6 @@ To reduce code time:
 
 ---
 
-
-
 <a name="undef"></a><h2>CAN WE RETURN UNDEFINED FROM AN RENDER?</h2>
 ---
 <br>
@@ -968,15 +971,32 @@ To reduce code time:
 ---
 
 
+<a name="conba"></a><h2>CONTEXT API BASIC USE</h2>
+---
+<br>
+
+### 
+
+* 
+   
+```javascript
+
+```
+
+
+[REF]([https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58))
+
+---
+
+
+
 *
 | 9  |[SHADOW DOM](#fccc)|✔
 | 10  |[LAZY IMPORT, DYNAMIC IMPORT](#fccc)|✔
 | 11  |[STATELESS COMPONENTS](#fccc)|
 | 12  |[PROP TYPES](#fccc)|
 | 14  |[SERVER SIDE RENDERING OF COMPONENTS](#fccc)|
-| 15  |[CSS IN REACT](#css)|✔
 | 16  |[SIGNIFICANCE OF "KEY" ATTRIBUTE](#fccc)|
 | 17  |[DYNAMIC ROUTING](#fccc)|
 | 19  |[CONTEXT API VS REDUX](#fccc)|
-| 20  |[CONTEXT API BASIC USE](#fccc)|
 *

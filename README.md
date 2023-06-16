@@ -34,7 +34,7 @@ Practice questions for React Interview:
 | 25  |[REFS, FORWARD REFS](#ref)| ✔
 | 26  |[CUSTOM HOOKS](#chook)| ✔
 | 27  |[PURE COMPONENTS / MEMO ](#pc)| ✔
-| 28  |[Why fragments are better than container divs? ](#frag)| ✔
+| 28  |[WHY FRAGMENTS ARE BETTER THAN CONTAINER DIVS? ](#frag)| ✔
 
 
 
@@ -538,6 +538,19 @@ export default App
 <a name="css"></a><h2>CSS IN REACT</h2>
 ---
 <br>
+
+There are various ways to apply css in react :
+1. CSS stylesheets 
+2. Inline css
+3. CSS Modules
+4. CSS in JS
+
+### CSS MODULES:
+
+* There is a file naming convention that we must follow for css module - filename.module.css
+* One advantage of using css modules - is that classes are locally scoped by default - 
+* What the above line means is -  suppose we have an app component and an Inner componnet inside app - so if we have a module css file - and we have imported it in app - we can still use it in the Inner component by default (child components have access to the parents css styles) - this leads to css conflicts
+* But in css modules since the classes are locally scoped they are not applicable to children component
 
 
 

@@ -574,7 +574,7 @@ export default App
 
 ### REF FORWARDING:
 * It is a technique to pass a  ref through a component to one of its children.
-* It is done by using the React.forwardRef function - which revieves a components as an input.
+* It is done by using the React.forwardRef function - which revieves a component as an input.
 * Every func comp recieves props by default as a parameter , but when we use createRef - we can access the ref as a second attribute
 * The "ref" parameter points to the value of the ref attribute of the parent comp.
 
@@ -913,13 +913,22 @@ Below are the list of reasons to prefer fragments over container DOM elements,
 ---
 <br>
 
-* React apps generally uses bundlers like webpack to efficiently bundle our code into a minified format- but this doesn't always guarantee   
-   
+* React apps generally uses bundlers like webpack to efficiently bundle our code into a minified format- but this doesn't always guarantee  optimization
+
+To reduce code time:
+
+* Code-Splitting is a feature supported by Webpack and Browserify, which can create multiple bundles that can be dynamically loaded at runtime.
+* One part of this code splitting is to lazy load our apps - react uses lazy and suspense to lazy load our apps
+* React.lazy is used to lazy load our components - and while these are loading we can use react.suspense to show UI (like Loading text ...)
+* React.suspense has a attribute fallback which can take the any custom comp that we need to display as the UI.
+
+#### ROUTE-BASED CODE SPLITTING:
+* Whenever our app loads all our routes load at once- but we can load any specific route only when an user navigates to that same.
+* We can lazy load our components and wrap our routes in React.suspense
+
 ```javascript
 
 ```
- 
-### FIX:
 
 
 [REF](https://www.youtube.com/watch?v=IBrmsyy9R94)

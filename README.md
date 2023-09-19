@@ -35,6 +35,7 @@ Practice questions for React Interview:
 | 26  |[CUSTOM HOOKS](#chook)| ✔
 | 27  |[PURE COMPONENTS / MEMO ](#pc)| ✔
 | 28  |[WHY FRAGMENTS ARE BETTER THAN CONTAINER DIVS? ](#frag)| ✔
+| 29  |[TREE SHAKING? ](#ts)| ✔
 
 
 
@@ -972,6 +973,23 @@ To reduce code time:
 
 
 <a name="conba"></a><h2>CONTEXT API BASIC USE</h2>
+---
+<br>
+
+### 
+
+* 
+   
+```javascript
+
+```
+
+
+[REF]([https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58))
+
+---
+
+<a name="ts"></a><h2>TREE SHAKING</h2>
 ---
 <br>
 

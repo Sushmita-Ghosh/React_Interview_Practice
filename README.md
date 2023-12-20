@@ -857,7 +857,7 @@ export default useDocumentTitle
 
 
 [YT](https://www.youtube.com/watch?v=l-s9MgoMwTI&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=73)
-
+[NAMASTE REACT](https://github.com/Sushmita-Ghosh/namaste-react/blob/master/9.%20Optimising%20our%20app/Theory.md)
 
 ---
 

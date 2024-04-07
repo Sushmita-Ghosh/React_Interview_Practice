@@ -794,7 +794,7 @@ Example: [UseMemoExample](https://github.com/Sushmita-Ghosh/React_Interview_Prac
 
 useCallback is a react hook that lets you cache the function defination in between re-renders.
 
-Example:
+Example: [useCallback]()
 In the example we have 2 counters (counter & counter2). And we have 2 buttons increment (for incrementing counter1) & decrement(for decrementing counter2). Now we have a squaredCounter (which displays squared value of the current counter value).
 
 Each time a component gets rendered a new reference to the function is created. So each time counter2 is decremented , a new reference to the squaredValue is created , and since we are printing value of counter2 we can see that in console.

@@ -7,37 +7,37 @@ Practice questions for React Interview:
 ## TABLE OF CONTENTS:
 
 | Serial No | Topic Name                                                    |
-| ----------- | ----------- | ----------- |
-| 1         | [HOC](#hoc)                                                   | ✔   |
-| 2         | [SYNTHETIC EVENTS](#se)                                       | ✔   |
-| 3         | [FC VS CC](#fccc)                                             | ✔   |
-| 4         | [STRICT MODE](#sm)                                            | ✔   |
-| 5         | [REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#rf) | ✔   |
-| 6         | [INFINITE LOOP IN REACT](#iloop)                              | ✔   |
-| 7         | [ADVANTAGES OF STYLED COMPONENTS](#sc)                        | ✔   |
-| 8         | [CAN WE RETURN UNDEFINED FROM AN RENDER?](#undef)             | ✔   |
-| 9         | [SHADOW DOM](#sd)                                             | ✔   |
-| 10        | [LAZY IMPORT, DYNAMIC IMPORT](#lidi)                          | ✔   |
-| 11        | [STATELESS COMPONENTS](#scomp)                                | ✔   |
-| 12        | [PROP TYPES](#ptypes)                                         | ✔   |
-| 13        | [ERROR BOUNDERIES](#eb)                                       | ✔   |
-| 14        | [SERVER SIDE RENDERING OF COMPONENTS](#server-side)           | ✔   |
-| 15        | [CSS IN REACT](#css)                                          | ✔   |
-| 16        | [SIGNIFICANCE OF "KEY" ATTRIBUTE](#skey)                      | ✔   |
-| 17        | [DYNAMIC ROUTING](#droute)                                    | ✔   |
-| 18        | [RENDER PROPS](#rp)                                           | ✔   |
-| 19        | [CONTEXT API VS REDUX](#context)                              | ✔   |
-| 20        | [CONTEXT API BASIC USE](#conba)                               | ✔   |
-| 21        | [REACT PORTAL](#rp)                                           | ✔   |
-| 22        | [CONTROLLED VS UNCONTROLLED COMPONENTS ](#cvu)                | ✔   |
-| 23        | [REACT.LAZY, REACT.SUSPENSE](#rsrl)                           | ✔   |
-| 24        | [LIFECYCLE METHODS](#lm)                                      | ✔   |
-| 25        | [REFS, FORWARD REFS](#ref)                                    | ✔   |
-| 26        | [CUSTOM HOOKS](#chook)                                        | ✔   |
-| 27        | [PURE COMPONENTS / MEMO ](#pc)                                | ✔   |
-| 28        | [WHY FRAGMENTS ARE BETTER THAN CONTAINER DIVS? ](#frag)       | ✔   |
-| 29        | [TREE SHAKING? ](#ts)                                         | ✔   |
-| 30        | [ DIFFERENCE BW USEEFFECT WITH [] DEPENDENCY AND IIFE ](#use) | ✔   |
+| --------- | ------------------------------------------------------------- |
+| 1         | [HOC](#hoc)                                                   |
+| 2         | [SYNTHETIC EVENTS](#se)                                       |
+| 3         | [FC VS CC](#fccc)                                             |
+| 4         | [STRICT MODE](#sm)                                            |
+| 5         | [REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#rf) |
+| 6         | [INFINITE LOOP IN REACT](#iloop)                              |
+| 7         | [ADVANTAGES OF STYLED COMPONENTS](#sc)                        |
+| 8         | [CAN WE RETURN UNDEFINED FROM AN RENDER?](#undef)             |
+| 9         | [SHADOW DOM](#sd)                                             |
+| 10        | [LAZY IMPORT, DYNAMIC IMPORT](#lidi)                          |
+| 11        | [STATELESS COMPONENTS](#scomp)                                |
+| 12        | [PROP TYPES](#ptypes)                                         |
+| 13        | [ERROR BOUNDERIES](#eb)                                       |
+| 14        | [SERVER SIDE RENDERING OF COMPONENTS](#server-side)           |
+| 15        | [CSS IN REACT](#css)                                          |
+| 16        | [SIGNIFICANCE OF "KEY" ATTRIBUTE](#skey)                      |
+| 17        | [DYNAMIC ROUTING](#droute)                                    |
+| 18        | [RENDER PROPS](#rp)                                           |
+| 19        | [CONTEXT API VS REDUX](#context)                              |
+| 20        | [CONTEXT API BASIC USE](#conba)                               |
+| 21        | [REACT PORTAL](#rp)                                           |
+| 22        | [CONTROLLED VS UNCONTROLLED COMPONENTS ](#cvu)                |
+| 23        | [REACT.LAZY, REACT.SUSPENSE](#rsrl)                           |
+| 24        | [LIFECYCLE METHODS](#lm)                                      |
+| 25        | [REFS, FORWARD REFS](#ref)                                    |
+| 26        | [CUSTOM HOOKS](#chook)                                        |
+| 27        | [PURE COMPONENTS / MEMO ](#pc)                                |
+| 28        | [WHY FRAGMENTS ARE BETTER THAN CONTAINER DIVS? ](#frag)       |
+| 29        | [TREE SHAKING? ](#ts)                                         |
+| 30        | [ DIFFERENCE BW USEEFFECT WITH [] DEPENDENCY AND IIFE ](#use) |
 
 ## TOPICS:
 

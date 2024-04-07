@@ -761,6 +761,16 @@ export default function Controlled() {
 
 <br>
 
+### USEMEMO:
+
+useMemo is a react hook that lets you cache the result of a calculation between re-renders.
+
+Example: [UseMemoExample]()
+
+- In the example, we have 2 states, one to calculate any nth prime number of the number entered in the input (this is a heavy calculation) & another is to toggle the theme. Now we know, that these two states are independant of each other, i.e; the state "number" does not depend on the "isDark" state so if we toggle the dark mode, we should not calculate the prime number.
+
+- But the issue is React will rerender the component on any state or props change, so even if we toggle the dark mode , the whole component gets rerendered , hence the prime number is again calculated. To avoid this, (since prime number will not change on any toggles of dark mode) - we can cache the result using useMemo.
+
 ---
 
 ## <a name="pc"></a><h2>PURE COMPONENTS / MEMO</h2>

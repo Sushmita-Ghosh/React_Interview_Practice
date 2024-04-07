@@ -669,6 +669,24 @@ export default App;
 
 > We can use ref forwarding while dealing with HOC or external library in react.
 
+### USEREF:
+
+useRef is a react hook that lets you reference a value that's not needed for rendering.
+Simply put, when you want to keep a value in a variable that you don't want to rerender you use useRef.
+The value of useRef is not lost when rerenders happens.
+
+- When we create a ref - we get an object with current property which stores the intial value.
+  {current: 0} --> the output if we console.log(ref) --> so to access the value we have to use ref.current.
+
+Example: [UseRef]()
+
+We have a ref - whose value is 0, and we have counter (state variable ) which also starts with 0.
+So, if we console.log(Render) in the component - we will see that when we increment the ref, the clg will not get printed, and we wont see any changes in the UI, but when we update the counter (updating the counter re-renders the component), we will see the Ref - with new value.
+
+This means the value of the Ref was persisted all along , but it never caused a rerendered.
+
+In the second example, we have an input and a button and on click of the button we can shift the focus and add a value 5 to the input tag with the help of a ref - As ref allows us to refernce the DOM elements directly.
+
 ---
 
 ## <a name="cvu"></a><h2>CONTROLLED VS UNCONTROLLED COMPONENTS</h2>
@@ -766,11 +784,24 @@ export default function Controlled() {
 
 useMemo is a react hook that lets you cache the result of a calculation between re-renders.
 
-Example: [UseMemoExample]()
+Example: [UseMemoExample](https://github.com/Sushmita-Ghosh/React_Interview_Practice/blob/master/examples/src/components/UseMemoExample.jsx)
 
 - In the example, we have 2 states, one to calculate any nth prime number of the number entered in the input (this is a heavy calculation) & another is to toggle the theme. Now we know, that these two states are independant of each other, i.e; the state "number" does not depend on the "isDark" state so if we toggle the dark mode, we should not calculate the prime number.
 
 - But the issue is React will rerender the component on any state or props change, so even if we toggle the dark mode , the whole component gets rerendered , hence the prime number is again calculated. To avoid this, (since prime number will not change on any toggles of dark mode) - we can cache the result using useMemo.
+
+### USECALLBACK:
+
+useCallback is a react hook that lets you cache the function defination in between re-renders.
+
+Example:
+In the example we have 2 counters (counter & counter2). And we have 2 buttons increment (for incrementing counter1) & decrement(for decrementing counter2). Now we have a squaredCounter (which displays squared value of the current counter value).
+
+Each time a component gets rendered a new reference to the function is created. So each time counter2 is decremented , a new reference to the squaredValue is created , and since we are printing value of counter2 we can see that in console.
+
+But we don't want that to happen, since squaredValue fnc is solely increasing the value of counter and is not dependent on counter2 we donot want new reference of a function to be generated when counter2 gets updated.
+
+The above can be achieved by using useCallback, the useCallback caches the squaredValue func in between re-renders, so even if the counter2 gets changed, a new refernce of the function is not created. And a new funtion reference gets generated only when counter is changed.
 
 ---
 

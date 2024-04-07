@@ -7,7 +7,7 @@ Practice questions for React Interview:
 ## TABLE OF CONTENTS:
 
 | Serial No | Topic Name                                                    |
-| --------- | ------------------------------------------------------------- | --- |
+|  |  | 
 | 1         | [HOC](#hoc)                                                   | ✔   |
 | 2         | [SYNTHETIC EVENTS](#se)                                       | ✔   |
 | 3         | [FC VS CC](#fccc)                                             | ✔   |

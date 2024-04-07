@@ -22,6 +22,7 @@ const UseMemoExample = () => {
         isDark ? "bg-slate-900 text-white" : "bg-slate-100 text-gray-900"
       } `}
     >
+      <h1 className="p-2 text-center font-bold text-3xl">UseMemo Example</h1>
       <div className="flex gap-2 p-2 justify-center items-center">
         <input
           value={number}

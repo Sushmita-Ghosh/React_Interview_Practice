@@ -37,6 +37,7 @@ Practice questions for React Interview:
 | 27        | [PURE COMPONENTS / MEMO ](#pc)                                | ✔   |
 | 28        | [WHY FRAGMENTS ARE BETTER THAN CONTAINER DIVS? ](#frag)       | ✔   |
 | 29        | [TREE SHAKING? ](#ts)                                         | ✔   |
+| 30        | [ DIFFERENCE BW USEEFFECT WITH [] DEPENDENCY AND IIFE ](#use) | ✔   |
 
 ## TOPICS:
 
@@ -1078,6 +1079,40 @@ To reduce code time:
 <br>
 
 ###
+
+-
+
+```javascript
+
+```
+
+[REF](<[https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58)>)
+
+---
+
+-
+
+```javascript
+
+```
+
+[REF](<[https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58)>)
+
+---
+
+## <a name="use"></a><h2>DIFFERENCE BW USEEFFECT WITH [] DEPENDENCY AND IIFE </h2>
+
+<br>
+
+### What is the difference between useEffect with empty dependency array and IIFE (Self invoking) function ? Will they do the same thing or different ?
+
+- Below is the interesting answer for this question:
+
+1. The primary difference during the first run is that useEffect with an empty dependency array is specifically designed to handle React component lifecycle events. It allows you to execute code after the initial render, and it provides a clean way to handle cleanup when the component is unmounted.
+
+2. An IIFE, being a general JavaScript pattern, does not have any built-in awareness of React's lifecycle. It will execute immediately, but it doesn't offer the same declarative approach to managing side effects and cleanup associated with React components.
+
+3. One more difference is the IIFE gets executed as soon as it encountered during the code execution process and the useEffect is run after the component has finished mounting as an IIFE runs in a synchronous manner and useEffect runs in an async manner.
 
 -
 

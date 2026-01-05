@@ -38,6 +38,7 @@ Practice questions for React Interview:
 | 28        | [WHY FRAGMENTS ARE BETTER THAN CONTAINER DIVS? ](#frag)       |
 | 29        | [TREE SHAKING? ](#ts)                                         |
 | 30        | [ DIFFERENCE BW USEEFFECT WITH [] DEPENDENCY AND IIFE ](#use) |
+| 31        | [ VIRTUAL DOM, RECONCILIATION, DIFFING ALGORITHM ](#diff) |
 
 ## TOPICS:
 
@@ -1184,5 +1185,55 @@ To reduce code time:
 ```
 
 [REF](<[https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58)>)
+
+---
+
+## <a name="diff"></a><h2> VIRTUAL DOM, RECONCILIATION, DIFFING ALGORITHM</h2>
+
+<br>
+
+### VIRTUAL DOM, RECONCILIATION, DIFFING
+The virtual DOM in React is a lightweight copy of the actual DOM. When the state of a component changes, React creates a new virtual DOM tree and compares it with the previous one using a process called "reconciliation." Only the differences are then updated in the actual DOM, making updates more efficient. The benefits include improved performance and a more declarative way to manage UI. However, it can add complexity and may not be as performant for very simple application
+
+### How does virtual DOM in React work?
+
+#### How does it work?
+1. Initial render: When a React component is first rendered, a virtual DOM tree is created. This tree is a lightweight copy of the actual DOM.
+2. State change: When the state of a component changes, React creates a new virtual DOM tree.
+3. **Diffing**: React compares the new virtual DOM tree with the previous one to find the differences. This process is known as "diffing."
+4. **Reconciliation**: React updates only the parts of the actual DOM that have changed, based on the differences found during the diffing process.
+
+## Benefits of virtual DOM
+#### Improved performance
+Efficient updates: By updating only the parts of the DOM that have changed, React minimizes the number of costly DOM operations.
+Batch updates: React can batch multiple updates together, reducing the number of re-renders.
+
+#### Declarative UI
+Simplified development: Developers can describe what the UI should look like for a given state, and React takes care of updating the DOM to match that state.
+
+#### Cross-platform
+React Native: The virtual DOM concept allows React to be used for mobile app development with React Native, providing a consistent development experience across platforms.
+
+
+```javascript
+import { useState } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount(count + 1);
+
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+```
+In this example, when the button is clicked, the state changes, triggering a new virtual DOM tree to be created. React then compares this new tree with the previous one and updates only the <p> element in the actual DOM.
+
+[BLOG](https://www.greatfrontend.com/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides?framework=react&tab=quiz)
 
 ---

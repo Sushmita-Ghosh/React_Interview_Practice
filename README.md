@@ -39,6 +39,7 @@ Practice questions for React Interview:
 | 29        | [TREE SHAKING? ](#ts)                                         |
 | 30        | [ DIFFERENCE BW USEEFFECT WITH [] DEPENDENCY AND IIFE ](#use) |
 | 31        | [ VIRTUAL DOM, RECONCILIATION, DIFFING ALGORITHM ](#diff) |
+| 32        | [ REACT FIBRE ](#fibre) |
 
 ## TOPICS:
 
@@ -1235,5 +1236,58 @@ function MyComponent() {
 In this example, when the button is clicked, the state changes, triggering a new virtual DOM tree to be created. React then compares this new tree with the previous one and updates only the <p> element in the actual DOM.
 
 [BLOG](https://www.greatfrontend.com/questions/quiz/how-does-virtual-dom-in-react-work-what-are-its-benefits-and-downsides?framework=react&tab=quiz)
+
+---
+
+## <a name="fibre"></a><h2>REACT FIBRE</h2>
+
+<br>
+
+### What is React Fiber and how is it an improvement over the previous approach?
+
+React Fiber is a complete rewrite of React's reconciliation algorithm, introduced in React 16. It improves the rendering process by breaking down rendering work into smaller units, allowing React to pause and resume work, which makes the UI more responsive. This approach enables features like time slicing and suspense, which were not possible with the previous stack-based algorithm.
+
+### Key improvements over the previous approach
+
+**1. Incremental rendering**
+The previous stack-based algorithm processed updates in a single, synchronous pass, which could lead to performance issues, especially with complex UIs. React Fiber breaks down rendering work into smaller units called "fibers", allowing React to pause and resume work. This makes the UI more responsive and prevents blocking the main thread for long periods.
+
+**2. Time slicing**
+React Fiber introduces the concept of time slicing, which allows React to prioritize updates based on their urgency. For example, user interactions like clicks and key presses can be prioritized over less critical updates. This ensures that the UI remains responsive even during heavy rendering tasks.
+
+**3. Concurrency**
+With Fiber, React can work on multiple tasks concurrently. This means that React can start rendering updates while still processing other tasks, leading to a smoother and more responsive user experience.
+
+**4. Error boundaries**
+React Fiber introduced error boundaries, which allow developers to catch and handle errors in the component tree gracefully. This was not possible with the previous stack-based algorithm, where errors could cause the entire application to crash.
+
+**5. Improved support for animations**
+Fiber's incremental rendering and time slicing capabilities make it easier to implement smooth animations and transitions. React can now prioritize animation frames and ensure that they are rendered in a timely manner, leading to a better user experience.
+
+```javascript
+class MyComponent extends React.Component {
+  state = {
+    items: Array.from({ length: 10000 }, (_, i) => i),
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.items.map((item) => (
+          <div key={item}>{item}</div>
+        ))}
+      </div>
+    );
+  }
+}
+
+```
+With the previous stack-based algorithm, rendering this component could cause the UI to freeze. With React Fiber, the rendering work is broken down into smaller units, allowing React to pause and resume work, keeping the UI responsive.
+
+**SUMMARY**
+<img width="968" height="327" alt="image" src="https://github.com/user-attachments/assets/ff885fa3-7700-4abf-84d3-6230af489188" />
+
+
+[BLOG](<[https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58)>)
 
 ---

@@ -1292,8 +1292,8 @@ With the previous stack-based algorithm, rendering this component could cause th
 **SUMMARY**
 <img width="968" height="327" alt="image" src="https://github.com/user-attachments/assets/ff885fa3-7700-4abf-84d3-6230af489188" />
 
-[BLOG](<[https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58)>)
+[BLOG](https://www.greatfrontend.com/questions/quiz/react-interview-questions?framework=react&tab=quiz#what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach)
 
----
+## [⬆ Back to top](#top)
 
 [⬆ Back to top](#top)

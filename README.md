@@ -6,40 +6,42 @@ Practice questions for React Interview:
 
 ## TABLE OF CONTENTS: <a id="top"></a>
 
-| Serial No | Topic Name                                                    |
-| --------- | ------------------------------------------------------------- |
-| 1         | [HOC](#hoc)                                                   |
-| 2         | [SYNTHETIC EVENTS](#se)                                       |
-| 3         | [FC VS CC](#fccc)                                             |
-| 4         | [STRICT MODE](#sm)                                            |
-| 5         | [REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#rf) |
-| 6         | [INFINITE LOOP IN REACT](#iloop)                              |
-| 7         | [ADVANTAGES OF STYLED COMPONENTS](#sc)                        |
-| 8         | [CAN WE RETURN UNDEFINED FROM AN RENDER?](#undef)             |
-| 9         | [SHADOW DOM](#sd)                                             |
-| 10        | [LAZY IMPORT, DYNAMIC IMPORT](#lidi)                          |
-| 11        | [STATELESS COMPONENTS](#scomp)                                |
-| 12        | [PROP TYPES](#ptypes)                                         |
-| 13        | [ERROR BOUNDERIES](#eb)                                       |
-| 14        | [SERVER SIDE RENDERING OF COMPONENTS](#server-side)           |
-| 15        | [CSS IN REACT](#css)                                          |
-| 16        | [SIGNIFICANCE OF "KEY" ATTRIBUTE](#skey)                      |
-| 17        | [DYNAMIC ROUTING](#droute)                                    |
-| 18        | [RENDER PROPS](#rp)                                           |
-| 19        | [CONTEXT API VS REDUX](#context)                              |
-| 20        | [CONTEXT API BASIC USE](#conba)                               |
-| 21        | [REACT PORTAL](#rp)                                           |
-| 22        | [CONTROLLED VS UNCONTROLLED COMPONENTS ](#cvu)                |
-| 23        | [REACT.LAZY, REACT.SUSPENSE](#rsrl)                           |
-| 24        | [LIFECYCLE METHODS](#lm)                                      |
-| 25        | [REFS, FORWARD REFS](#ref)                                    |
-| 26        | [CUSTOM HOOKS](#chook)                                        |
-| 27        | [PURE COMPONENTS / MEMO ](#pc)                                |
-| 28        | [WHY FRAGMENTS ARE BETTER THAN CONTAINER DIVS? ](#frag)       |
-| 29        | [TREE SHAKING? ](#ts)                                         |
-| 30        | [ DIFFERENCE BW USEEFFECT WITH [] DEPENDENCY AND IIFE ](#use) |
-| 31        | [ VIRTUAL DOM, RECONCILIATION, DIFFING ALGORITHM ](#diff)     |
-| 32        | [ REACT FIBRE ](#fibre)                                       |
+| Serial No | Topic Name                                                             |
+| --------- | ---------------------------------------------------------------------- |
+| 1         | [HOC](#hoc)                                                            |
+| 2         | [SYNTHETIC EVENTS](#se)                                                |
+| 3         | [FC VS CC](#fccc)                                                      |
+| 4         | [STRICT MODE](#sm)                                                     |
+| 5         | [REACT PERFORMANCE USEMEMO VS USECALLBACK VS REACT.MEMO](#rf)          |
+| 6         | [INFINITE LOOP IN REACT](#iloop)                                       |
+| 7         | [ADVANTAGES OF STYLED COMPONENTS](#sc)                                 |
+| 8         | [CAN WE RETURN UNDEFINED FROM AN RENDER?](#undef)                      |
+| 9         | [SHADOW DOM](#sd)                                                      |
+| 10        | [LAZY IMPORT, DYNAMIC IMPORT](#lidi)                                   |
+| 11        | [STATELESS COMPONENTS](#scomp)                                         |
+| 12        | [PROP TYPES](#ptypes)                                                  |
+| 13        | [ERROR BOUNDERIES](#eb)                                                |
+| 14        | [SERVER SIDE RENDERING OF COMPONENTS](#server-side)                    |
+| 15        | [CSS IN REACT](#css)                                                   |
+| 16        | [SIGNIFICANCE OF "KEY" ATTRIBUTE](#skey)                               |
+| 17        | [DYNAMIC ROUTING](#droute)                                             |
+| 18        | [RENDER PROPS](#rp)                                                    |
+| 19        | [CONTEXT API VS REDUX](#context)                                       |
+| 20        | [CONTEXT API BASIC USE](#conba)                                        |
+| 21        | [REACT PORTAL](#rp)                                                    |
+| 22        | [CONTROLLED VS UNCONTROLLED COMPONENTS ](#cvu)                         |
+| 23        | [REACT.LAZY, REACT.SUSPENSE](#rsrl)                                    |
+| 24        | [LIFECYCLE METHODS](#lm)                                               |
+| 25        | [REFS, FORWARD REFS](#ref)                                             |
+| 26        | [CUSTOM HOOKS](#chook)                                                 |
+| 27        | [PURE COMPONENTS / MEMO ](#pc)                                         |
+| 28        | [WHY FRAGMENTS ARE BETTER THAN CONTAINER DIVS? ](#frag)                |
+| 29        | [TREE SHAKING? ](#ts)                                                  |
+| 30        | [ DIFFERENCE BW USEEFFECT WITH [] DEPENDENCY AND IIFE ](#use)          |
+| 31        | [ VIRTUAL DOM, RECONCILIATION, DIFFING ALGORITHM ](#diff)              |
+| 32        | [ REACT FIBRE ](#fibre)                                                |
+| 33        | [ How does React determine when to re-render a component? ](#rerender) |
+| 34        | [ CONCURRENT FEATURES IN REACT ](#concurrent)                          |
 
 ## TOPICS:
 
@@ -48,60 +50,49 @@ Practice questions for React Interview:
 ## <a name="hoc"></a><h2>HIGHER ORDER COMPONENT</h2>
 
 <br>
-Higher Order Component in React is defined a component which takes another component as input and may or may not return another component.
+Higher order components (HOCs) in React are functions that take a component and return a new component with additional props or behavior. They are used to reuse component logic.
   
 <b>For example :</b> Suppose you have two buttons to design – Login & Register – So you can design a button component – then pass it to another higher order component which will have additional functionalities like – styling – on Click – then the text
 
 ### Code :
 
-`Hello.jsx`
-
 ```javascript
-function Hello() {
-  return <div>Hello</div>;
-}
+import React from "react";
 
-export default Hello;
-```
-
-`ContainerHoc.jsx`
-
-```javascript
-export default function ContainerHoc(component) {
-  const Component = component;
-  return function (props) {
-    return (
-      <div>
-        <h1> Inside HOC</h1>
-        {/* yahan props pass krna mandatory hai */}
-        <Component {...props} />
-      </div>
-    );
+// Define the HOC
+const withExtraProps = (WrappedComponent) => {
+  return (props) => {
+    return <WrappedComponent {...props} extraProp="value" />;
   };
-}
-```
+};
 
-`App.jsx`
+// Define a component to be wrapped
+const MyComponent = (props) => {
+  return <div>{props.extraProp}</div>;
+};
 
-```javascript
-import "./App.css";
-import ContainerHoc from "./components/ContainerHoc";
-import Hello from "./components/Hello";
+// Wrap the component using the HOC
+const EnhancedComponent = withExtraProps(MyComponent);
 
-function App() {
-  const SampleComponent = ContainerHoc(Hello);
-
-  return (
-    <>
-      <SampleComponent />
-    </>
-  );
-}
+// Use the enhanced component
+const App = () => {
+  return <EnhancedComponent />;
+};
 
 export default App;
 ```
 
+In this example, `withExtraProps` is an HOC that adds an extraProp to `MyComponent`. The `EnhancedComponent` now has access to `extraProp`.
+
+### Common use cases
+
+1. Authentication: Wrapping components to check if a user is authenticated before rendering.
+2. Logging: Adding logging functionality to components.
+3. Theming: Injecting theme-related props into components.
+4. Data fetching: Fetching data and passing it as props to components.
+
 [YT](https://www.youtube.com/watch?v=o22KRrxab18&list=PLmcRO0ZwQv4QMslGJQg7N8AzaHkC5pJ4t&index=28)
+[BLOG](https://www.greatfrontend.com/questions/quiz/react-interview-questions?framework=react&tab=quiz#what-are-higher-order-components-in-react)
 
 ---
 
@@ -435,6 +426,10 @@ export default App;
 ```
 
 **_Even if they share the count & increment count their instances are different so no conflict will happen. _**
+
+** PS **
+
+1. Render props is an alternative to HOC & hooks.
 
 [YT](https://www.youtube.com/watch?v=NdapMDgNhtE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=36)
 [RENDER PROPS IN FC](https://stackoverflow.com/questions/59481733/hocs-and-render-props-with-functional-components-in-react-16)
@@ -975,6 +970,18 @@ To reduce code time:
 
 ```
 
+### **SUMMARY:**
+
+React Suspense is a feature introduced by the React team to help manage asynchronous operations in a more declarative way. It allows you to specify a loading state (fallback) while waiting for some asynchronous operation to complete, such as data fetching(when used with libraries like React Query, Relay, or SWR). or code splitting.
+
+You wrap a component with <Suspense fallback={<Loading />}> , and while the content is loading, React shows the fallback.
+
+_Beyond just lazy loading:_
+
+1.You can use it with streaming SSR (in Next.js) 2. You can coordinate parallel data loading 3. You can delay transitions to avoid layout shifts
+
+It’s about better UX during loading states, not just code splitting.
+
 [REF](https://www.youtube.com/watch?v=IBrmsyy9R94)
 
 ---
@@ -1170,6 +1177,7 @@ To reduce code time:
 ```
 
 [REF](<[https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58)>)
+[⬆ Back to top](#top)
 
 ---
 
@@ -1186,6 +1194,7 @@ To reduce code time:
 ```
 
 [REF](<[https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58)>)
+[⬆ Back to top](#top)
 
 ---
 
@@ -1295,5 +1304,88 @@ With the previous stack-based algorithm, rendering this component could cause th
 [BLOG](https://www.greatfrontend.com/questions/quiz/react-interview-questions?framework=react&tab=quiz#what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach)
 
 ## [⬆ Back to top](#top)
+
+---
+
+## <a name="rerender"></a><h2>How does React determine when to re-render a component?</h2>
+
+<br>
+
+React re-renders a component when:
+• Its _state or props change_
+• Its _parent component re-renders_, unless it's memoized
+
+But here's the twist: React doesn't do deep comparisons by default. So even if an object or array looks "the same", if the reference changes, React treats it as different.
+
+That's why techniques like:
+
+- React.memo ()
+- useMemo ()
+- useCallback() are important in performance tuning- they help you avoid unnecessary renders when data hasn't really changed.
+
+#### Bonus: The key prop also plays a role in determining if elements inside a list need to be re-rendered or not.
+
+[⬆ Back to top](#top)
+
+---
+
+## <a name="concurrent"></a><h2>CONCURRENT FEATURES IN REACT</h2>
+
+<br>
+
+###
+
+Concurrent features — introduced in React 18 — allow React to prepare multiple versions of the UI at the
+same time.
+
+Concurrent Rendering is a set of new features in React that allows the library to interrupt and pause rendering work to keep the application responsive. Traditional React rendering is synchronous and blocking, meaning that once a rendering task starts, it must complete before the browser can perform other tasks like responding to user inputs or updating the UI.
+
+Concurrent Rendering changes this by allowing React to “pause” work and switch between tasks, such as responding to user inputs and rendering updates, without blocking the browser’s main thread. This approach enhances the user experience, particularly in complex applications with heavy rendering tasks.
+
+```js
+//App.js
+
+import React, { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+  const [text, setText] = useState("Initial Text");
+  return (
+    <>
+      <button onClick={() => setCount(count + 1)}>
+        Press to Increase Counter
+      </button>
+      <p>Counter: {count}</p>
+
+      <button onClick={() => setTimeout(() => setText("Text Updated"), 2000)}>
+        Press to Change Text
+      </button>
+      <p>{text}</p>
+    </>
+  );
+}
+
+export default App;
+```
+
+In the above example, while the text is being updated, the counter can be increased, which demonstrates that the concurrent mode allows one to switch between executing different tasks. _see gfg linked below to see the video_
+
+### Enabling Concurrent Mode
+
+To enable concurrent mode in your React application, first upgrade your React and ReactDOM npm packages to React 18. Then, instead of using the **ReactDOM.render()** method, use the **createRoot()** method. This simple process will automatically enable concurrent rendering in your application.
+
+Let’s say a user is typing a search query and you’re fetching filtered results. Without concurrency, the UI could feel laggy. But with concurrent rendering, React can keep the UI responsive while preparing the
+new result list in the background.
+
+📦 Features like startTransition , useDeferredValue , and automatic batching allow this.
+
+So, concurrent features are like giving React multitasking superpowers — it can prioritize urgent updates like user input over non-urgent tasks like data fetching.
+
+[REF](https://medium.com/@abhi.venkata54/using-concurrent-rendering-in-react-83eb794f7c71)
+[REF](https://www.geeksforgeeks.org/reactjs/how-does-concurrent-mode-help-in-improving-the-user-experience/)
+[REF](https://medium.com/@abhi.venkata54/using-concurrent-rendering-in-react-83eb794f7c71)
+[⬆ Back to top](#top)
+
+---
 
 [⬆ Back to top](#top)

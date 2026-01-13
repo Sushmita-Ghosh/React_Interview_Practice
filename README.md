@@ -1381,6 +1381,63 @@ new result list in the background.
 
 So, concurrent features are like giving React multitasking superpowers — it can prioritize urgent updates like user input over non-urgent tasks like data fetching.
 
+## Primary Concurrent Features in React 18 & 19
+
+React 18 and React 19 introduce several powerful concurrent features that help keep applications responsive, performant, and user-friendly.
+
+---
+
+### 🔹 `useTransition` / `startTransition`
+
+These APIs allow developers to mark certain state updates as **non-urgent**.
+
+- **Urgent updates** (e.g., typing, clicking) are prioritized and executed immediately.
+- **Non-urgent updates** (e.g., rendering a large list based on user input) are deferred and processed in the background.
+
+This prevents the UI from freezing or feeling sluggish during expensive renders.
+
+---
+
+### 🔹 `useDeferredValue`
+
+`useDeferredValue` defers a **value** instead of a state update.
+
+- Useful when you **don’t control** the state update (such as values coming from third-party libraries).
+- Helps keep the UI responsive when a value changes frequently (e.g., search input).
+- Creates a deferred version of a value that updates at a lower priority.
+
+---
+
+### 🔹 `Suspense`
+
+Originally designed for code-splitting with `React.lazy`, `Suspense` has evolved to handle **asynchronous operations** such as data fetching.
+
+- Displays a **fallback UI** (e.g., loading spinner) while a component is waiting for data.
+- Prevents blocking the rest of the UI during loading.
+- Integrates with **server-side rendering (SSR)** to stream HTML as it becomes available.
+
+---
+
+### 🔹 Automatic Batching of Updates
+
+With `ReactDOM.createRoot`, React now automatically batches state updates across more scenarios.
+
+- In earlier versions, updates outside event handlers could trigger multiple renders.
+- React now groups multiple state updates into a **single render pass**.
+- Results in fewer re-renders and improved performance.
+
+---
+
+### 🔹 `useOptimistic` (React 19)
+
+Introduced in React 19, `useOptimistic` enables **optimistic UI updates**.
+
+- Immediately shows a temporary optimistic value to the user.
+- Runs the actual asynchronous operation (e.g., network request) in the background.
+- Makes interactions feel instant, even before the operation completes.
+
+---
+
 [REF](https://medium.com/@abhi.venkata54/using-concurrent-rendering-in-react-83eb794f7c71)
 [REF](https://www.geeksforgeeks.org/reactjs/how-does-concurrent-mode-help-in-improving-the-user-experience/)
 [REF](https://medium.com/@abhi.venkata54/using-concurrent-rendering-in-react-83eb794f7c71)

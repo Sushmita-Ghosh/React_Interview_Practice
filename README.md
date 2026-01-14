@@ -1042,7 +1042,7 @@ Any code that is exported but never imported or used anywhere in the application
 **4. Minification**  
 During the production build, a minifier (such as Terser, the default in Webpack 5) removes the marked dead code from the final bundle.
 
--
+**For example,** if you use only 3 functions from the date-fns library, without tree shaking the entire library would be included in the bundle. With tree shaking enabled, only those 3 functions and the code they depend on are included in the final bundle.
 
 ```javascript
 

@@ -1022,7 +1022,25 @@ It’s about better UX during loading states, not just code splitting.
 
 <br>
 
-###
+Tree shaking is an optimization technique used in React (and other JavaScript applications) to eliminate unused code (dead code) from the final production bundle. This results in smaller file sizes, faster load times, and improved overall application performance.
+
+This is especially important becoz we don't want to ship JS that is unused in our application to production.
+
+## How It Works
+
+The process relies on the static analysis capabilities of modern JavaScript module bundlers like Webpack, Rollup, or Vite.
+
+**1. ES Modules (ESM) Syntax**  
+Tree shaking requires the use of `import` and `export` statements (ES6 modules) instead of CommonJS `require()`. ES modules have a static structure, which allows bundlers to determine dependencies at build time rather than runtime.
+
+**2. Static Analysis**  
+The bundler analyzes the dependency graph of the application, starting from the entry point. It identifies which functions, components, or variables are being imported and used.
+
+**3. Dead Code Elimination**  
+Any code that is exported but never imported or used anywhere in the application is marked as dead code.
+
+**4. Minification**  
+During the production build, a minifier (such as Terser, the default in Webpack 5) removes the marked dead code from the final bundle.
 
 -
 

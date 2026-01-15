@@ -98,7 +98,7 @@ In this example, `withExtraProps` is an HOC that adds an extraProp to `MyCompone
 
 ## <a name="se"></a><h2>SYNTHETIC EVENTS</h2>
 
-In order to work across multiple browsers, react has create a wrapper around native browser events.
+In order to work across multiple browsers, react has created a wrapper around native browser events.
 
 - Whenever a event occurs in the application, react listens to it and then wraps the event with an interface - which will provide the same functionality as native browser events.
 - Why? By doing so, they have avoided creating multiple implementations for multiple methods for multiple browsers.
@@ -163,7 +163,7 @@ So we had to write class components for any kind of data manipulation through st
 
 <br>
 
-Strict Mode is a react developer tool (means it only runs in development mode) for identifying possible problems in apllication. It provides deprication checks and warning messages whenever any such code is written in an application.
+Strict Mode is a react developer tool (means it only runs in development mode) for identifying possible problems in application. It provides deprication checks and warning messages whenever any such code is written in an application.
 
 - Doesn't render any UI, just for development check.
 - Since it is a development tool, only works in developement mode - doesn't effect production build whatsoever.
@@ -1136,25 +1136,29 @@ During the production build, a minifier (such as Terser, the default in Webpack 
 
 <br>
 
-###
+The key prop is a special attribute you need to include when creating lists of elements in React. It is crucial for helping React identify which items have changed, been added, or removed, thereby optimizing the rendering process.
 
--
+### Why key is important
 
-```javascript
+**Efficient updates**  
+React uses the `key` prop to keep track of elements. When the state of a list changes, React can quickly determine which items need to be re-rendered, added, or removed.
 
-```
+**Avoiding bugs**  
+Without unique keys, React may re-render elements unnecessarily or incorrectly, which can lead to unexpected behavior and bugs in the application.
 
-[REF](<[https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58)>)
+**Performance optimization**  
+Using unique keys helps React minimize the number of DOM operations, making the application faster and more efficient.
 
----
+## Common mistakes
 
--
+**Using array index as key**  
+While it might be tempting to use the array index as the key, this is not recommended because the index can change if the list is reordered or if items are added or removed. Also if nothing is provided, that's the default used by react.
 
-```javascript
+**Non-unique keys**  
+Ensure that the keys are unique across the list. Duplicate keys can lead to unexpected behavior and bugs.
 
-```
-
-[REF](<[https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58)>)
+[REF]()
+<br/>
 
 ---
 
@@ -1173,10 +1177,6 @@ During the production build, a minifier (such as Terser, the default in Webpack 
 3. One more difference is the IIFE gets executed as soon as it encountered during the code execution process and the useEffect is run after the component has finished mounting as an IIFE runs in a synchronous manner and useEffect runs in an async manner.
 
 -
-
-```javascript
-
-```
 
 [REF](<[https://www.youtube.com/watch?v=IBrmsyy9R94](https://www.youtube.com/watch?v=CI7EYWmRDJE&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=58)>)
 
@@ -1321,7 +1321,7 @@ With the previous stack-based algorithm, rendering this component could cause th
 
 [BLOG](https://www.greatfrontend.com/questions/quiz/react-interview-questions?framework=react&tab=quiz#what-is-react-fiber-and-how-is-it-an-improvement-over-the-previous-approach)
 
-## [⬆ Back to top](#top)
+[⬆ Back to top](#top)
 
 ---
 
@@ -1350,8 +1350,6 @@ That's why techniques like:
 ## <a name="concurrent"></a><h2>CONCURRENT FEATURES IN REACT</h2>
 
 <br>
-
-###
 
 Concurrent features — introduced in React 18 — allow React to prepare multiple versions of the UI at the
 same time.
@@ -1399,13 +1397,13 @@ new result list in the background.
 
 So, concurrent features are like giving React multitasking superpowers — it can prioritize urgent updates like user input over non-urgent tasks like data fetching.
 
-## Primary Concurrent Features in React 18 & 19
+### Primary Concurrent Features in React 18 & 19
 
 React 18 and React 19 introduce several powerful concurrent features that help keep applications responsive, performant, and user-friendly.
 
 ---
 
-### 🔹 `useTransition` / `startTransition`
+#### 🔹 `useTransition` / `startTransition`
 
 These APIs allow developers to mark certain state updates as **non-urgent**.
 
@@ -1416,7 +1414,7 @@ This prevents the UI from freezing or feeling sluggish during expensive renders.
 
 ---
 
-### 🔹 `useDeferredValue`
+#### 🔹 `useDeferredValue`
 
 `useDeferredValue` defers a **value** instead of a state update.
 
@@ -1426,7 +1424,7 @@ This prevents the UI from freezing or feeling sluggish during expensive renders.
 
 ---
 
-### 🔹 `Suspense`
+#### 🔹 `Suspense`
 
 Originally designed for code-splitting with `React.lazy`, `Suspense` has evolved to handle **asynchronous operations** such as data fetching.
 
@@ -1436,7 +1434,7 @@ Originally designed for code-splitting with `React.lazy`, `Suspense` has evolved
 
 ---
 
-### 🔹 Automatic Batching of Updates
+#### 🔹 Automatic Batching of Updates
 
 With `ReactDOM.createRoot`, React now automatically batches state updates across more scenarios.
 
@@ -1446,7 +1444,7 @@ With `ReactDOM.createRoot`, React now automatically batches state updates across
 
 ---
 
-### 🔹 `useOptimistic` (React 19)
+#### 🔹 `useOptimistic` (React 19)
 
 Introduced in React 19, `useOptimistic` enables **optimistic UI updates**.
 
@@ -1462,5 +1460,7 @@ Introduced in React 19, `useOptimistic` enables **optimistic UI updates**.
 [⬆ Back to top](#top)
 
 ---
+
+##
 
 [⬆ Back to top](#top)
